@@ -1,106 +1,128 @@
-# @ralorotech/rl-design-system
+# Duino UI
 
-Design system mínimo en **React + TypeScript** con estilos **CSS (BEM)**.  
-Demo de componentes (Storybook): **https://rafaellozano.github.io/Ralorotech-DS**
+Sistema de diseño minimalista en **React + TypeScript** con estilos **CSS (BEM)**, inspirado en la identidad visual de Arduino.  
+Colores y tokens basados en la paleta teal/turquesa característica de Arduino.cc
 
 ---
 
-## 🚀 Instalar desde npm
+## 🚀 Instalación
 
 ```bash
-npm i @ralorotech/rl-design-system
+npm i duino-ui
 # o
-yarn add @ralorotech/rl-design-system
+yarn add duino-ui
 # o
-pnpm add @ralorotech/rl-design-system
+pnpm add duino-ui
 ```
 
 Importa el CSS (tokens + estilos base):
 
 ```ts
-import "@ralorotech/rl-design-system/styles.css";
+import "duino-ui/styles.css";
 ```
 
 ### Uso rápido
 
 ```tsx
-import { Button } from "@ralorotech/rl-design-system";
-import "@ralorotech/rl-design-system/styles.css";
+import { Button, Card, Input } from "duino-ui";
+import "duino-ui/styles.css";
 
 export default function App() {
   return (
-    <>
+    <Card>
+      <h2>Duino UI Components</h2>
       <Button>Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="danger" loading>Deleting…</Button>
-    </>
+      <Input placeholder="Ingresa texto..." />
+    </Card>
   );
 }
 ```
 
 ---
 
-## 🧑‍💻 Correr el proyecto en local (librería + ejemplo)
+## 🧑‍💻 Desarrollo local
 
 > Requisitos: **Node 18+** y npm/pnpm/yarn.
 
-1) **Instalar dependencias** (en la raíz del repo):
+1) **Instalar dependencias**:
 
 ```bash
-npm i
+npm install
 ```
 
-2) **Compilar en modo watch** la librería (genera `dist/`):
+2) **Compilar en modo watch** (genera `dist/`):
 
 ```bash
 npm run dev
 ```
 
-3) (Opcional) **Probar en la app de ejemplo** (`example/`):
+3) **Probar componentes** con Storybook:
 
 ```bash
-cd example
-npm i
-npm run dev
+npm run storybook
 ```
 
-> Si tu ejemplo importa el paquete publicado, puedes enlazar la librería local para ver cambios al instante:
->
-> ```bash
-> # en la raíz
-> npm link
-> # en example/
-> npm link @ralorotech/rl-design-system
-> npm run dev
-> ```
+### 🎨 Tokens de diseño
+
+Duino UI utiliza tokens CSS personalizados inspirados en Arduino:
+
+```css
+/* Colores principales */
+--duino-brand-500: #14b8a6;  /* Teal principal */
+--duino-brand-700: #008184;  /* Teal oscuro para botones */
+--duino-brand-800: #005c5f;  /* Teal muy oscuro para hover */
+
+/* Espaciado */
+--duino-gap-sm: .375rem;
+--duino-gap: .5rem;
+--duino-gap-lg: .75rem;
+
+/* Bordes */
+--duino-radius: 12px;
+```
 
 ---
 
 ## 📚 Storybook
 
-- **Correr Storybook localmente**:
+Explora todos los componentes de Duino UI:
+
+- **Localmente**:
   ```bash
   npm run storybook
   ```
   Abre: http://localhost:6006
 
-- **Versión publicada (GitHub Pages)**:  
-  https://rafaellozano.github.io/Ralorotech-DS
+- **Demo online**: (próximamente)
 
 ---
 
-## 🧩 Scripts útiles
+## 🧩 Scripts disponibles
 
-```json
-{
-  "build": "tsup",
-  "build:css": "mkdir -p dist && (cat src/styles/tokens.css 2>/dev/null || true) > dist/styles.css && find src/components -name '*.css' -exec cat {} + >> dist/styles.css",
-  "dev": "tsup --watch",
-  "storybook": "storybook dev -p 6006",
-  "build:storybook": "storybook build"
-}
+```bash
+# Desarrollo
+npm run dev          # Compilar en modo watch
+npm run storybook    # Ejecutar Storybook
+
+# Construcción
+npm run build        # Compilar librería
+npm run build:css    # Generar CSS combinado
+npm run build:storybook  # Compilar Storybook
+
+# Testing
+npm run test         # Ejecutar tests con Vitest
 ```
+
+## 🎯 Componentes incluidos
+
+- **Button**: Botones con variantes primary, secondary, ghost y danger
+- **Card**: Contenedores con backdrop blur y estilos modernos  
+- **Input**: Campos de entrada con estados de focus y error
+
+Todos los componentes utilizan los tokens de Duino UI y siguen la metodología BEM para CSS.
 
 ---
 
