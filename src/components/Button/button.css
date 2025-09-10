@@ -1,19 +1,19 @@
 @import "../../styles/tokens.css";
 
 .rl-Button {
-    --btn-bg: var(--rl-brand-500);
-    --btn-bg-hover: var(--rl-brand-600);
+    --btn-bg: var(--duino-brand-700);
+    --btn-bg-hover: var(--duino-brand-800);
     --btn-fg: #fff;
     --btn-border: transparent;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--rl-gap, 0.5rem);
+    gap: var(--duino-gap, 0.5rem);
     border: 1px solid var(--btn-border);
     background: var(--btn-bg);
     color: var(--btn-fg);
-    border-radius: var(--rl-radius, 12px);
+    border-radius: var(--duino-radius, 12px);
     padding: 0.5rem 0.875rem;
     font-weight: 600;
     line-height: 1.2;
@@ -32,7 +32,7 @@
 }
 
 .rl-Button:focus-visible {
-    outline: 2px solid var(--rl-ring, #93c5fd);
+    outline: 2px solid var(--duino-ring, #93c5fd);
     outline-offset: 2px;
 }
 
@@ -68,14 +68,14 @@
 .rl-Button--variant-secondary {
     --btn-bg: #fff;
     --btn-bg-hover: #f7f7f7;
-    --btn-fg: var(--rl-color-fg, #13151a);
-    --btn-border: var(--rl-border, #e5e7eb);
+    --btn-fg: var(--duino-color-fg, #13151a);
+    --btn-border: var(--duino-border, #e5e7eb);
 }
 
 .rl-Button--variant-ghost {
     --btn-bg: transparent;
     --btn-bg-hover: rgba(0, 0, 0, .06);
-    --btn-fg: var(--rl-color-fg, #13151a);
+    --btn-fg: var(--duino-color-fg, #13151a);
     --btn-border: transparent;
 }
 

@@ -12,7 +12,7 @@ body {
 
 body {
     margin: 0;
-    font-family: var(--rl-font);
-    color: var(--rl-color-fg);
-    background: var(--rl-color-bg);
+    font-family: var(--duino-font);
+    color: var(--duino-color-fg);
+    background: var(--duino-color-bg);
 }
