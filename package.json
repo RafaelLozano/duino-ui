@@ -1,0 +1,84 @@
+{
+  "name": "@ralorotech/duino-ui",
+  "version": "0.1.3",
+  "description": "UI library for Duino projects",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "author": "Rafael Lozano",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelLozano/duino-ui.git"
+  },
+  "homepage": "https://github.com/RafaelLozano/duino-ui#readme",
+  "bugs": {
+    "url": "https://github.com/RafaelLozano/duino-ui/issues"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:css": "mkdir -p dist && (cat src/styles/tokens.css 2>/dev/null || true) > dist/styles.css && find src/components -name '*.css' -exec cat {} + >> dist/styles.css",
+    "dev": "tsup --watch",
+    "storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build",
+    "test": "vitest --config vitest.config.ts --passWithNoTests",
+    "prepublishOnly": "npm run build && npm run build:css",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [
+    "react",
+    "design-system",
+    "typescript",
+    "BEM",
+    "ui",
+    "button",
+    "Arduino"
+  ],
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^9.1.4",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-storybook": "^9.1.4",
+    "jsdom": "^26.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "storybook": "^9.1.4",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  }
+}
