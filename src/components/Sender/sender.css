@@ -1,0 +1,51 @@
+.duino-senderContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    padding: 8px;
+}
+
+.duino-senderContainer:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: 2px;
+}
+
+.duino-senderContainer:hover {
+    border-color: var(--duino-brand-500);
+}
+
+.duino-senderContainer:active {
+    border-color: var(--duino-brand-500);
+}
+
+.duino-senderContainer .duino-senderButton {
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.duino-senderContainer .duino-sender {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--duino-color-fg);
+}

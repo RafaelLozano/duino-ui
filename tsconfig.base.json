@@ -13,6 +13,11 @@
     "resolveJsonModule": true,
     "strict": true,
     "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
   },
-  "include": ["src"]
+  "include": ["src"],
+ 
 }
