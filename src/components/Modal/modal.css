@@ -1,0 +1,196 @@
+/* Estado del body cuando hay modal abierto */
+.is-modal-open {
+    overflow: hidden;
+}
+
+/* Bloque principal */
+.duino-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 160ms ease;
+}
+
+.duino-modal--open {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* Fondo */
+.duino-modal__mask {
+    position: absolute;
+    inset: 0;
+    background: rgba(19, 21, 26, 0.45);
+    backdrop-filter: saturate(120%) blur(2px);
+}
+
+/* Contenedor del diálogo */
+.duino-modal__container {
+    position: relative;
+    box-sizing: border-box;
+    margin: 48px auto;
+    max-width: 90vw;
+    background: var(--duino-color-bg);
+    color: var(--duino-color-fg);
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, .12),
+        0 6px 6px rgba(0, 0, 0, .08);
+    outline: none;
+
+    /* Sutil borde superior con el color de marca (Arduino-ish) */
+    border-top: 4px solid var(--ximo-brand-600, var(--duino-brand-600));
+    /* fallback por si alguien renombra variables */
+}
+
+/* Centrado vertical opcional */
+.duino-modal--centered .duino-modal__container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    /* anula margen superior cuando centrado */
+}
+
+/* Header */
+.duino-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--duino-gap);
+    padding: calc(var(--duino-gap-lg) + 2px) var(--duino-gap-lg);
+    border-bottom: 1px solid var(--duino-border);
+    background:
+        linear-gradient(180deg, var(--duino-brand-50), transparent 60%);
+    border-top-left-radius: var(--duino-radius);
+    border-top-right-radius: var(--duino-radius);
+}
+
+.duino-modal__title {
+    margin: 0;
+    font-family: var(--duino-font);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--duino-brand-800);
+}
+
+/* Botón cerrar estilo Arduino */
+.duino-modal__close {
+    appearance: none;
+    border: 1px solid var(--duino-border);
+    background: #fff;
+    font-size: 1.125rem;
+    line-height: 1;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    transition: box-shadow 120ms ease, transform 80ms ease;
+}
+
+.duino-modal__close:hover {
+    box-shadow: 0 0 0 3px var(--duino-brand-100);
+}
+
+.duino-modal__close:active {
+    transform: translateY(1px);
+}
+
+/* Body */
+.duino-modal__body {
+    padding: var(--duino-gap-lg);
+    font-family: var(--duino-font);
+    color: var(--duino-color-fg);
+}
+
+/* Footer */
+.duino-modal__footer {
+    display: flex;
+    gap: var(--duino-gap);
+    justify-content: flex-end;
+    padding: var(--duino-gap-lg);
+    border-top: 1px solid var(--duino-border);
+    background: #fafafa;
+    border-bottom-left-radius: var(--duino-radius);
+    border-bottom-right-radius: var(--duino-radius);
+}
+
+/* Botones base reusables (Arduino look) */
+.duino-btn {
+    font-family: var(--duino-font);
+    border-radius: 10px;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--duino-border);
+    background: #fff;
+    cursor: pointer;
+    transition: box-shadow 120ms ease, transform 80ms ease, background 120ms ease;
+}
+
+.duino-btn:hover {
+    box-shadow: 0 0 0 3px var(--duino-brand-100);
+}
+
+.duino-btn:active {
+    transform: translateY(1px);
+}
+
+.duino-btn--primary {
+    background: var(--duino-brand-600);
+    color: #fff;
+    border-color: var(--duino-brand-600);
+}
+
+.duino-btn--primary:hover {
+    box-shadow: 0 0 0 3px var(--duino-brand-200);
+}
+
+.duino-btn--ghost {
+    background: #fff;
+    color: var(--duino-brand-800);
+    border-color: var(--duino-border);
+}
+
+/* Animación de entrada (sutil “pop”) */
+.duino-modal--open .duino-modal__container {
+    animation: duino-modal-pop 160ms ease;
+}
+
+@keyframes duino-modal-pop {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Si no está centrado, ajustar animación de entrada sin translate -50% */
+.duino-modal--open:not(.duino-modal--centered) .duino-modal__container {
+    animation: duino-modal-pop-top 160ms ease;
+}
+
+@keyframes duino-modal-pop-top {
+    from {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive: limitar ancho en pantallas pequeñas */
+@media (max-width: 520px) {
+    .duino-modal__container {
+        width: calc(100vw - 24px) !important;
+    }
+}
