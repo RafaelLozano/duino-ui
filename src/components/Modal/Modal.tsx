@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
-import "./Modal.css";
+import "./modal.css";
 
 export type ModalProps = {
   open: boolean;
