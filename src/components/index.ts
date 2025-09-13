@@ -4,11 +4,12 @@ export { Modal } from "./Modal/Modal";
 export { MessageProvider, useMessage } from "./Message/MessageProvider";
 export { Sender } from "./Sender/Sender";
 
-// ===== TIPOS DE COMPONENTES =====
+
 export type { 
   ButtonProps, 
   ButtonVariant, 
-  ButtonSize 
+  ButtonSize, 
+  ButtonShape 
 } from "./Button/Button";
 
 export type { 

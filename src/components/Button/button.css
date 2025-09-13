@@ -1,118 +1,351 @@
+/* Import tokens */
 @import "../../styles/tokens.css";
 
-.rl-Button {
-    --btn-bg: var(--duino-brand-700);
-    --btn-bg-hover: var(--duino-brand-800);
-    --btn-fg: #fff;
-    --btn-border: transparent;
+/* ===== DUINO BUTTON - BEM METHODOLOGY ===== */
 
+/* Block: duino-btn */
+.duino-btn {
+    /* Reset y base */
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--duino-gap, 0.5rem);
-    border: 1px solid var(--btn-border);
-    background: var(--btn-bg);
-    color: var(--btn-fg);
-    border-radius: var(--duino-radius, 12px);
-    padding: 0.5rem 0.875rem;
-    font-weight: 600;
-    line-height: 1.2;
-    cursor: pointer;
-    transition: transform .05s ease-in-out, background .15s, border-color .15s;
+    gap: var(--duino-gap-sm);
+
+    /* Tipografía */
+    font-family: var(--duino-font);
+    font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
+    line-height: 1.4;
+
+    /* Layout */
+    border-radius: var(--duino-radius);
+    border: 1px solid transparent;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+
+    /* Transiciones suaves */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Enfoque */
+    outline: none;
 }
 
-.rl-Button:hover {
-    background: var(--btn-bg-hover);
-}
-
-.rl-Button:active {
-    transform: translateY(1px);
-}
-
-.rl-Button:focus-visible {
-    outline: 2px solid var(--duino-ring, #93c5fd);
+.duino-btn:focus-visible {
+    outline: 2px solid var(--duino-ring);
     outline-offset: 2px;
 }
 
-.rl-Button__icon {
-    display: inline-flex;
-    line-height: 0;
+/* ===== VARIANTS (Modifiers) ===== */
+
+/* Primary - Estilo principal de Arduino */
+.duino-btn--primary {
+    background: linear-gradient(135deg, var(--duino-brand-500), var(--duino-brand-600));
+    color: white;
+    border-color: var(--duino-brand-600);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.rl-Button__content {
-    display: inline-flex;
+.duino-btn--primary:hover:not(.duino-btn--disabled) {
+    background: linear-gradient(135deg, var(--duino-brand-600), var(--duino-brand-700));
+    border-color: var(--duino-brand-700);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+    transform: translateY(-1px);
+}
+
+.duino-btn--primary:active:not(.duino-btn--disabled) {
+    background: linear-gradient(135deg, var(--duino-brand-700), var(--duino-brand-800));
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary - Outline style */
+.duino-btn--secondary {
+    background: var(--duino-color-bg);
+    color: var(--duino-brand-600);
+    border-color: var(--duino-brand-300);
+}
+
+.duino-btn--secondary:hover:not(.duino-btn--disabled) {
+    background: var(--duino-brand-50);
+    border-color: var(--duino-brand-400);
+    color: var(--duino-brand-700);
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.15);
+}
+
+.duino-btn--secondary:active:not(.duino-btn--disabled) {
+    background: var(--duino-brand-100);
+    border-color: var(--duino-brand-500);
+}
+
+/* Ghost - Minimal style */
+.duino-btn--ghost {
+    background: transparent;
+    color: var(--duino-brand-600);
+    border-color: transparent;
+}
+
+.duino-btn--ghost:hover:not(.duino-btn--disabled) {
+    background: var(--duino-brand-50);
+    color: var(--duino-brand-700);
+}
+
+.duino-btn--ghost:active:not(.duino-btn--disabled) {
+    background: var(--duino-brand-100);
+}
+
+/* Text - Solo texto */
+.duino-btn--text {
+    background: transparent;
+    color: var(--duino-brand-600);
+    border-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.duino-btn--text:hover:not(.duino-btn--disabled) {
+    color: var(--duino-brand-700);
+    background: transparent;
+}
+
+.duino-btn--text:active:not(.duino-btn--disabled) {
+    color: var(--duino-brand-800);
+}
+
+/* Danger - Para acciones destructivas */
+.duino-btn--danger {
+    background: linear-gradient(135deg, var(--duino-danger-500), #dc2626);
+    color: white;
+    border-color: #dc2626;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.duino-btn--danger:hover:not(.duino-btn--disabled) {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    border-color: #b91c1c;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    transform: translateY(-1px);
+}
+
+.duino-btn--danger:active:not(.duino-btn--disabled) {
+    background: linear-gradient(135deg, #b91c1c, #991b1b);
+    transform: translateY(0);
+}
+
+/* ===== SIZES ===== */
+
+.duino-btn--sm {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-height: 28px;
+}
+
+.duino-btn--md {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 36px;
+}
+
+.duino-btn--lg {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 44px;
+}
+
+/* ===== SHAPES ===== */
+
+.duino-btn--round {
+    border-radius: 50px;
+}
+
+.duino-btn--circle {
+    border-radius: 50%;
+    width: auto;
+    aspect-ratio: 1;
+    padding: 8px;
+}
+
+.duino-btn--circle.duino-btn--sm {
+    padding: 6px;
+    min-height: 28px;
+    width: 28px;
+}
+
+.duino-btn--circle.duino-btn--lg {
+    padding: 12px;
+    min-height: 44px;
+    width: 44px;
+}
+
+/* ===== STATES ===== */
+
+/* Block - Ancho completo */
+.duino-btn--block {
+    width: 100%;
+    display: flex;
+}
+
+/* Loading */
+.duino-btn--loading {
+    cursor: wait;
+    pointer-events: none;
+}
+
+.duino-btn--loading .duino-btn__text {
+    opacity: 0.7;
+}
+
+/* Disabled */
+.duino-btn--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.duino-btn--disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Icon only */
+.duino-btn--icon-only {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.duino-btn--icon-only.duino-btn--sm {
+    padding: 6px;
+}
+
+.duino-btn--icon-only.duino-btn--lg {
+    padding: 12px;
+}
+
+/* ===== ELEMENTS ===== */
+
+/* Loading spinner */
+.duino-btn__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.duino-btn__spinner {
+    width: 14px;
+    height: 14px;
+    animation: duino-spin 1s linear infinite;
+}
+
+.duino-btn--sm .duino-btn__spinner {
+    width: 12px;
+    height: 12px;
+}
+
+.duino-btn--lg .duino-btn__spinner {
+    width: 16px;
+    height: 16px;
+}
+
+.duino-btn__spinner-circle {
+    stroke: currentColor;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 25;
+    stroke-linecap: round;
+    animation: duino-spin-dash 1.5s ease-in-out infinite;
+}
+
+/* Icon */
+.duino-btn__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.duino-btn__icon svg {
+    width: 1em;
+    height: 1em;
+}
+
+/* Text */
+.duino-btn__text {
+    display: flex;
     align-items: center;
 }
 
-.rl-Button__spinner {
-    width: 1em;
-    height: 1em;
-    border: 2px solid rgba(255, 255, 255, .5);
-    border-top-color: #fff;
-    border-radius: 50%;
-    margin-left: .5rem;
-    animation: rl-spin .8s linear infinite;
-}
+/* ===== ANIMATIONS ===== */
 
-@keyframes rl-spin {
+@keyframes duino-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
     to {
         transform: rotate(360deg);
     }
 }
 
-/* Variantes */
-.rl-Button--variant-primary {}
+@keyframes duino-spin-dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
 
-.rl-Button--variant-secondary {
-    --btn-bg: #fff;
-    --btn-bg-hover: #f7f7f7;
-    --btn-fg: var(--duino-color-fg, #13151a);
-    --btn-border: var(--duino-border, #e5e7eb);
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
 }
 
-.rl-Button--variant-ghost {
-    --btn-bg: transparent;
-    --btn-bg-hover: rgba(0, 0, 0, .06);
-    --btn-fg: var(--duino-color-fg, #13151a);
-    --btn-border: transparent;
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-btn--lg {
+        padding: 10px 20px;
+        font-size: 15px;
+        min-height: 40px;
+    }
+
+    .duino-btn--md {
+        padding: 7px 14px;
+        font-size: 13px;
+        min-height: 34px;
+    }
 }
 
-.rl-Button--variant-danger {
-    --btn-bg: #ef4444;
-    --btn-bg-hover: #dc2626;
-    --btn-fg: #fff;
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    .duino-btn {
+        transition: none;
+    }
+
+    .duino-btn__spinner {
+        animation: none;
+    }
+
+    .duino-btn__spinner-circle {
+        animation: none;
+        stroke-dasharray: none;
+        stroke-dashoffset: 0;
+    }
 }
 
-/* Tamaños */
-.rl-Button--size-sm {
-    padding: .375rem .625rem;
-    font-size: .875rem;
-}
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-btn {
+        border-width: 2px;
+    }
 
-.rl-Button--size-md {
-    padding: .5rem .875rem;
-    font-size: .95rem;
-}
-
-.rl-Button--size-lg {
-    padding: .625rem 1rem;
-    font-size: 1.05rem;
-}
-
-/* Bloque */
-.rl-Button--block {
-    width: 100%;
-}
-
-/* Estados */
-.rl-Button--disabled {
-    opacity: .6;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.rl-Button--loading {
-    pointer-events: none;
+    .duino-btn:focus-visible {
+        outline-width: 3px;
+    }
 }

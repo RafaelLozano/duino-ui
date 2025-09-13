@@ -12,7 +12,8 @@ export { Sender } from "./components/Sender/Sender";
 export type { 
   ButtonProps, 
   ButtonVariant, 
-  ButtonSize 
+  ButtonSize,
+  ButtonShape
 } from "./components/Button/Button";
 
 export type { 
