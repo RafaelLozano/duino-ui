@@ -5,6 +5,7 @@ import "./styles/index.css";
 // ===== COMPONENTES =====
 export { Button } from "./components/Button/Button";
 export { Modal } from "./components/Modal/Modal";
+export { MessageProvider, useMessage } from "./components/Message/MessageProvider";
 export { Sender } from "./components/Sender/Sender";
 
 // ===== TIPOS DE COMPONENTES =====
@@ -17,6 +18,13 @@ export type {
 export type { 
   ModalProps 
 } from "./components/Modal/Modal";
+
+export type { 
+  MessageOptions,
+  MessageType,
+  MessagePlacement,
+  UseMessageApi
+} from "./components/Message/MessageProvider";
 
 export type { 
   SenderProps 
@@ -34,4 +42,5 @@ export type BemFunction = (element?: string, modifiers?: Record<string, boolean 
 // Permite importar como: import { Button, ButtonProps } from '@ralorotech/duino-ui'
 export * from "./components/Button/Button";
 export * from "./components/Modal/Modal";
+export * from "./components/Message/MessageProvider";
 export * from "./components/Sender/Sender";
