@@ -1,0 +1,494 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
+/* ===== DUINO SELECT - BEM METHODOLOGY ===== */
+
+/* Block: duino-select */
+.duino-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-family: var(--duino-font);
+    color: var(--duino-color-fg);
+    cursor: pointer;
+    outline: none;
+}
+
+.duino-select--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ===== VARIANTS ===== */
+
+/* Default variant */
+.duino-select--default .duino-select__selector {
+    border: 1px solid var(--duino-border);
+    background: var(--duino-color-bg);
+}
+
+/* Filled variant */
+.duino-select--filled .duino-select__selector {
+    border: 1px solid transparent;
+    background: var(--duino-brand-50);
+}
+
+/* Borderless variant */
+.duino-select--borderless .duino-select__selector {
+    border: 1px solid transparent;
+    background: transparent;
+}
+
+/* ===== SIZES ===== */
+
+/* Small */
+.duino-select--sm .duino-select__selector {
+    min-height: 28px;
+    padding: 4px 8px;
+    font-size: 13px;
+}
+
+.duino-select--sm .duino-select__arrow {
+    width: 12px;
+    height: 12px;
+}
+
+/* Medium (default) */
+.duino-select--md .duino-select__selector {
+    min-height: 36px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.duino-select--md .duino-select__arrow {
+    width: 14px;
+    height: 14px;
+}
+
+/* Large */
+.duino-select--lg .duino-select__selector {
+    min-height: 44px;
+    padding: 12px 16px;
+    font-size: 15px;
+}
+
+.duino-select--lg .duino-select__arrow {
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== STATES ===== */
+
+/* Focus state */
+.duino-select:focus .duino-select__selector,
+.duino-select--open .duino-select__selector {
+    border-color: var(--duino-brand-400);
+    box-shadow: 0 0 0 3px var(--duino-ring);
+}
+
+/* Error state */
+.duino-select--error .duino-select__selector {
+    border-color: var(--duino-danger-500);
+}
+
+.duino-select--error:focus .duino-select__selector,
+.duino-select--error.duino-select--open .duino-select__selector {
+    border-color: var(--duino-danger-500);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--duino-danger-500) 20%, transparent);
+}
+
+/* Success state */
+.duino-select--success .duino-select__selector {
+    border-color: var(--duino-brand-500);
+}
+
+/* Loading state */
+.duino-select--loading {
+    cursor: wait;
+}
+
+/* Open state */
+.duino-select--open .duino-select__arrow {
+    transform: rotate(180deg);
+}
+
+/* ===== ELEMENTS ===== */
+
+/* Selector */
+.duino-select__selector {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: var(--duino-radius);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.duino-select__selector:hover:not(.duino-select--disabled .duino-select__selector) {
+    border-color: var(--duino-brand-300);
+}
+
+/* Placeholder */
+.duino-select__placeholder {
+    color: var(--duino-color-muted);
+    flex: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Single value */
+.duino-select__single-value {
+    display: flex;
+    align-items: center;
+    gap: var(--duino-gap-sm);
+    flex: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Tags container */
+.duino-select__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Tag */
+.duino-select__tag {
+    display: inline-flex;
+    align-items: center;
+    background: var(--duino-brand-100);
+    color: var(--duino-brand-700);
+    padding: 2px 6px;
+    border-radius: calc(var(--duino-radius) / 2);
+    font-size: 12px;
+    max-width: 150px;
+}
+
+.duino-select__tag--more {
+    background: var(--duino-color-muted);
+    color: white;
+}
+
+.duino-select__tag-content {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.duino-select__tag-close {
+    appearance: none;
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    margin-left: 4px;
+    padding: 0;
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.15s ease;
+}
+
+.duino-select__tag-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* Actions container */
+.duino-select__actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: var(--duino-gap-sm);
+}
+
+/* Clear button */
+.duino-select__clear {
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--duino-color-muted);
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    padding: 2px;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.15s ease;
+}
+
+.duino-select__clear:hover {
+    background: var(--duino-border);
+    color: var(--duino-color-fg);
+}
+
+/* Loading icon */
+.duino-select__loading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.duino-select__spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--duino-border);
+    border-top: 2px solid var(--duino-brand-500);
+    border-radius: 50%;
+    animation: duino-select-spin 1s linear infinite;
+}
+
+@keyframes duino-select-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Arrow */
+.duino-select__arrow {
+    color: var(--duino-color-muted);
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* ===== DROPDOWN ===== */
+
+.duino-select__dropdown {
+    background: var(--duino-color-bg);
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.1),
+        0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    animation: duino-select-dropdown-in 0.15s ease-out;
+}
+
+@keyframes duino-select-dropdown-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Search */
+.duino-select__search {
+    padding: 8px;
+    border-bottom: 1px solid var(--duino-border);
+}
+
+.duino-select__search-input {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid var(--duino-border);
+    border-radius: calc(var(--duino-radius) / 2);
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.duino-select__search-input:focus {
+    border-color: var(--duino-brand-400);
+    box-shadow: 0 0 0 2px var(--duino-ring);
+}
+
+/* Options container */
+.duino-select__options {
+    max-height: inherit;
+    overflow-y: auto;
+}
+
+/* Option */
+.duino-select__option {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--duino-gap-sm);
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.duino-select__option:hover:not(.duino-select__option--disabled) {
+    background: var(--duino-brand-50);
+}
+
+.duino-select__option--focused:not(.duino-select__option--disabled) {
+    background: var(--duino-brand-100);
+}
+
+.duino-select__option--selected {
+    background: var(--duino-brand-500);
+    color: white;
+}
+
+.duino-select__option--selected:hover {
+    background: var(--duino-brand-600);
+}
+
+.duino-select__option--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Checkbox in option */
+.duino-select__checkbox {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 2px solid var(--duino-brand-300);
+    cursor: pointer;
+    accent-color: var(--duino-brand-500);
+    margin-top: 1px;
+}
+
+/* Option icon */
+.duino-select__option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* Option content */
+.duino-select__option-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.duino-select__option-label {
+    display: block;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.duino-select__option-description {
+    display: block;
+    font-size: 12px;
+    color: var(--duino-color-muted);
+    margin-top: 2px;
+    line-height: 1.3;
+}
+
+.duino-select__option--selected .duino-select__option-description {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Group */
+.duino-select__group {
+    border-bottom: 1px solid var(--duino-border);
+}
+
+.duino-select__group:last-child {
+    border-bottom: none;
+}
+
+.duino-select__group-title {
+    padding: 8px 12px 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--duino-color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--duino-brand-25, #fafafa);
+    border-bottom: 1px solid var(--duino-border);
+}
+
+/* Empty state */
+.duino-select__empty {
+    padding: 20px 12px;
+    text-align: center;
+    color: var(--duino-color-muted);
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-select__dropdown {
+        max-width: 100vw;
+        margin: 0 8px;
+    }
+
+    .duino-select__option {
+        padding: 12px;
+    }
+
+    .duino-select__tag {
+        max-width: 120px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .duino-select__selector,
+    .duino-select__option,
+    .duino-select__arrow,
+    .duino-select__spinner {
+        transition: none;
+        animation: none;
+    }
+
+    .duino-select__dropdown {
+        animation: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-select__selector {
+        border-width: 2px;
+    }
+
+    .duino-select__option--selected {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+.duino-select:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: 2px;
+}
+
+.duino-select__clear:focus-visible,
+.duino-select__tag-close:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: 1px;
+}
+
+/* Print styles */
+@media print {
+    .duino-select__dropdown {
+        display: none;
+    }
+
+    .duino-select__selector {
+        border-color: #000;
+    }
+}

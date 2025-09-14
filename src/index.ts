@@ -6,6 +6,8 @@ import "./styles/index.css";
 export { Button } from "./components/Button/Button";
 export { Modal } from "./components/Modal/Modal";
 export { MessageProvider, useMessage } from "./components/Message/MessageProvider";
+export { Popover } from "./components/Popover/Popover";
+export { Select } from "./components/Select/Select";
 export { Sender } from "./components/Sender/Sender";
 export { Table } from "./components/Table/Table";
 
@@ -27,6 +29,19 @@ export type {
   MessagePlacement,
   UseMessageApi
 } from "./components/Message/MessageProvider";
+
+export type { 
+  PopoverProps, 
+  PopoverPlacement, 
+  PopoverTrigger 
+} from "./components/Popover/Popover";
+
+export type { 
+  SelectProps, 
+  SelectOption, 
+  SelectSize, 
+  SelectVariant 
+} from "./components/Select/Select";
 
 export type { 
   SenderProps 
@@ -59,5 +74,7 @@ export type { DuinoTheme, ThemeProviderProps, ThemeSwitcherProps } from "./theme
 export * from "./components/Button/Button";
 export * from "./components/Modal/Modal";
 export * from "./components/Message/MessageProvider";
+export * from "./components/Popover/Popover";
+export * from "./components/Select/Select";
 export * from "./components/Sender/Sender";
 export * from "./components/Table/Table";

@@ -1,0 +1,393 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
+/* ===== DUINO POPOVER - BEM METHODOLOGY ===== */
+
+/* Block: duino-popover */
+.duino-popover {
+    position: absolute;
+    z-index: 1050;
+    font-family: var(--duino-font);
+    font-size: 14px;
+    line-height: 1.5;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    pointer-events: auto;
+}
+
+/* ===== ELEMENTS ===== */
+
+/* Content wrapper */
+.duino-popover__content {
+    position: relative;
+    background: var(--duino-color-bg);
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.1),
+        0 4px 6px rgba(0, 0, 0, 0.05);
+    max-width: 300px;
+    word-wrap: break-word;
+    animation: duino-popover-in 0.15s ease-out;
+}
+
+@keyframes duino-popover-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-2px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Inner content */
+.duino-popover__inner {
+    padding: 12px 16px;
+}
+
+/* Title */
+.duino-popover__title {
+    font-weight: 600;
+    color: var(--duino-color-fg);
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.duino-popover__title:only-child {
+    margin-bottom: 0;
+}
+
+/* Body */
+.duino-popover__body {
+    color: var(--duino-color-fg);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Arrow */
+.duino-popover__arrow {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--duino-color-bg);
+    border: 1px solid var(--duino-border);
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+/* Hover bridge - área invisible para mantener hover */
+.duino-popover__hover-bridge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+}
+
+/* ===== PLACEMENT MODIFIERS ===== */
+
+/* Top placements */
+.duino-popover__content--top,
+.duino-popover__content--top-start,
+.duino-popover__content--top-end {
+    margin-bottom: 8px;
+}
+
+.duino-popover__content--top .duino-popover__arrow,
+.duino-popover__content--top-start .duino-popover__arrow,
+.duino-popover__content--top-end .duino-popover__arrow {
+    bottom: -9px;
+    border-top: none;
+    border-left: none;
+}
+
+.duino-popover__content--top .duino-popover__arrow {
+    left: 50%;
+    margin-left: -8px;
+}
+
+.duino-popover__content--top-start .duino-popover__arrow {
+    left: 16px;
+}
+
+.duino-popover__content--top-end .duino-popover__arrow {
+    right: 16px;
+}
+
+/* Bottom placements */
+.duino-popover__content--bottom,
+.duino-popover__content--bottom-start,
+.duino-popover__content--bottom-end {
+    margin-top: 8px;
+}
+
+.duino-popover__content--bottom .duino-popover__arrow,
+.duino-popover__content--bottom-start .duino-popover__arrow,
+.duino-popover__content--bottom-end .duino-popover__arrow {
+    top: -9px;
+    border-bottom: none;
+    border-right: none;
+}
+
+.duino-popover__content--bottom .duino-popover__arrow {
+    left: 50%;
+    margin-left: -8px;
+}
+
+.duino-popover__content--bottom-start .duino-popover__arrow {
+    left: 16px;
+}
+
+.duino-popover__content--bottom-end .duino-popover__arrow {
+    right: 16px;
+}
+
+/* Left placements */
+.duino-popover__content--left,
+.duino-popover__content--left-start,
+.duino-popover__content--left-end {
+    margin-right: 8px;
+}
+
+.duino-popover__content--left .duino-popover__arrow,
+.duino-popover__content--left-start .duino-popover__arrow,
+.duino-popover__content--left-end .duino-popover__arrow {
+    right: -9px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.duino-popover__content--left .duino-popover__arrow {
+    top: 50%;
+    margin-top: -8px;
+}
+
+.duino-popover__content--left-start .duino-popover__arrow {
+    top: 16px;
+}
+
+.duino-popover__content--left-end .duino-popover__arrow {
+    bottom: 16px;
+}
+
+/* Right placements */
+.duino-popover__content--right,
+.duino-popover__content--right-start,
+.duino-popover__content--right-end {
+    margin-left: 8px;
+}
+
+.duino-popover__content--right .duino-popover__arrow,
+.duino-popover__content--right-start .duino-popover__arrow,
+.duino-popover__content--right-end .duino-popover__arrow {
+    left: -9px;
+    border-right: none;
+    border-top: none;
+}
+
+.duino-popover__content--right .duino-popover__arrow {
+    top: 50%;
+    margin-top: -8px;
+}
+
+.duino-popover__content--right-start .duino-popover__arrow {
+    top: 16px;
+}
+
+.duino-popover__content--right-end .duino-popover__arrow {
+    bottom: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-popover__content {
+        max-width: 280px;
+        font-size: 13px;
+    }
+
+    .duino-popover__inner {
+        padding: 10px 12px;
+    }
+
+    .duino-popover__title {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    .duino-popover__body {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .duino-popover__content {
+        max-width: calc(100vw - 32px);
+        margin: 0 16px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    .duino-popover {
+        transition: none;
+    }
+
+    .duino-popover__content {
+        animation: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-popover__content {
+        border-width: 2px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .duino-popover__arrow {
+        border-width: 2px;
+    }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+    .duino-popover__content {
+        background: #1f2937;
+        border-color: #374151;
+        color: #f9fafb;
+    }
+
+    .duino-popover__arrow {
+        background: #1f2937;
+        border-color: #374151;
+    }
+
+    .duino-popover__title {
+        color: #f9fafb;
+    }
+
+    .duino-popover__body {
+        color: #d1d5db;
+    }
+}
+
+/* ===== SPECIAL CONTENT STYLES ===== */
+
+/* Rich content support */
+.duino-popover__body h1,
+.duino-popover__body h2,
+.duino-popover__body h3,
+.duino-popover__body h4,
+.duino-popover__body h5,
+.duino-popover__body h6 {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.duino-popover__body p {
+    margin: 0 0 8px 0;
+}
+
+.duino-popover__body p:last-child {
+    margin-bottom: 0;
+}
+
+.duino-popover__body ul,
+.duino-popover__body ol {
+    margin: 0 0 8px 0;
+    padding-left: 16px;
+}
+
+.duino-popover__body li {
+    margin-bottom: 2px;
+}
+
+.duino-popover__body a {
+    color: var(--duino-brand-500);
+    text-decoration: none;
+}
+
+.duino-popover__body a:hover {
+    color: var(--duino-brand-600);
+    text-decoration: underline;
+}
+
+.duino-popover__body code {
+    background: var(--duino-brand-50);
+    color: var(--duino-brand-700);
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.duino-popover__body pre {
+    background: var(--duino-brand-50);
+    color: var(--duino-brand-700);
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    overflow-x: auto;
+    margin: 8px 0;
+}
+
+.duino-popover__body hr {
+    border: none;
+    border-top: 1px solid var(--duino-border);
+    margin: 12px 0;
+}
+
+/* Interactive content */
+.duino-popover__body button {
+    margin: 4px 4px 4px 0;
+}
+
+.duino-popover__body .duino-btn {
+    font-size: 12px;
+    padding: 4px 8px;
+    min-height: 24px;
+}
+
+/* Images */
+.duino-popover__body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+/* Tables */
+.duino-popover__body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 8px 0;
+}
+
+.duino-popover__body th,
+.duino-popover__body td {
+    padding: 4px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--duino-border);
+}
+
+.duino-popover__body th {
+    font-weight: 600;
+    background: var(--duino-brand-50);
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+    .duino-popover {
+        display: none !important;
+    }
+}
