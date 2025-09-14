@@ -3,6 +3,7 @@ export { Button } from "./Button/Button";
 export { Modal } from "./Modal/Modal";
 export { MessageProvider, useMessage } from "./Message/MessageProvider";
 export { Sender } from "./Sender/Sender";
+export { Table } from "./Table/Table";
 
 
 export type { 
@@ -26,3 +27,11 @@ export type {
 export type { 
   SenderProps 
 } from "./Sender/Sender";
+
+export type { 
+  TableProps, 
+  TableColumn, 
+  TableSize, 
+  SortDirection, 
+  TableVariant 
+} from "./Table/Table";

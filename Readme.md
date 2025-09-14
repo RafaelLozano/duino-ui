@@ -3,6 +3,28 @@
 Sistema de diseño minimalista en **React + TypeScript** con estilos **CSS (BEM)**, inspirado en la identidad visual de Arduino.  
 Colores y tokens basados en la paleta teal/turquesa característica de Arduino.cc
 
+## 🎨 Personalización Completa
+
+Duino UI es **100% personalizable**. Cambia colores, border radius, tipografía y más en tiempo real.
+
+### 🚀 Inicio Rápido con Temas
+```tsx
+import { ThemeProvider, Button, ThemeSwitcher } from '@ralorotech/duino-ui';
+
+function App() {
+  return (
+    <ThemeProvider preset="blue">
+      <ThemeSwitcher />  {/* Panel de personalización */}
+      <Button variant="primary">Mi Botón Personalizado</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+### 📚 Guías de Personalización
+- **[Guía Rápida](./THEMING_QUICK_START.md)** - Personalización en 2 minutos
+- **[Guía Completa](./CUSTOMIZATION.md)** - Personalización avanzada con ejemplos
+
 ---
 
 ## 🚀 Instalación
