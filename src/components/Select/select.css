@@ -8,6 +8,7 @@
     position: relative;
     display: inline-block;
     width: 100%;
+    max-width: 100%;
     font-family: var(--duino-font);
     color: var(--duino-color-fg);
     cursor: pointer;
@@ -19,13 +20,13 @@
     opacity: 0.6;
 }
 
+.duino-select--disabled * {
+    cursor: not-allowed !important;
+}
+
 /* ===== VARIANTS ===== */
 
-/* Default variant */
-.duino-select--default .duino-select__selector {
-    border: 1px solid var(--duino-border);
-    background: var(--duino-color-bg);
-}
+/* Default variant - estilos ya definidos en selector base */
 
 /* Filled variant */
 .duino-select--filled .duino-select__selector {
@@ -33,10 +34,33 @@
     background: var(--duino-brand-50);
 }
 
+.duino-select--filled .duino-select__selector:hover:not(.duino-select--disabled .duino-select__selector) {
+    background: var(--duino-brand-100);
+}
+
+.duino-select--filled:focus .duino-select__selector,
+.duino-select--filled.duino-select--open .duino-select__selector {
+    background: var(--duino-color-bg);
+    border-color: var(--duino-brand-400);
+}
+
 /* Borderless variant */
 .duino-select--borderless .duino-select__selector {
     border: 1px solid transparent;
     background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.duino-select--borderless .duino-select__selector:hover:not(.duino-select--disabled .duino-select__selector) {
+    background: var(--duino-brand-50);
+}
+
+.duino-select--borderless:focus .duino-select__selector,
+.duino-select--borderless.duino-select--open .duino-select__selector {
+    background: var(--duino-brand-50);
+    border-color: transparent;
+    box-shadow: none;
 }
 
 /* ===== SIZES ===== */
@@ -53,10 +77,8 @@
     height: 12px;
 }
 
-/* Medium (default) */
+/* Medium (default) - ya definido en selector base */
 .duino-select--md .duino-select__selector {
-    min-height: 36px;
-    padding: 8px 12px;
     font-size: 14px;
 }
 
@@ -119,9 +141,14 @@
     display: flex;
     align-items: center;
     width: 100%;
+    min-height: 36px;
+    padding: 8px 12px;
+    border: 1px solid var(--duino-border);
     border-radius: var(--duino-radius);
+    background: var(--duino-color-bg);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    box-sizing: border-box;
 }
 
 .duino-select__selector:hover:not(.duino-select--disabled .duino-select__selector) {
@@ -161,15 +188,19 @@
     align-items: center;
     background: var(--duino-brand-100);
     color: var(--duino-brand-700);
-    padding: 2px 6px;
+    padding: 4px 8px;
     border-radius: calc(var(--duino-radius) / 2);
     font-size: 12px;
+    font-weight: 500;
     max-width: 150px;
+    border: 1px solid var(--duino-brand-200);
+    gap: 4px;
 }
 
 .duino-select__tag--more {
     background: var(--duino-color-muted);
     color: white;
+    border-color: var(--duino-color-muted);
 }
 
 .duino-select__tag-content {
@@ -184,21 +215,23 @@
     border: none;
     color: inherit;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1;
-    margin-left: 4px;
     padding: 0;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: background-color 0.15s ease;
+    transition: all 0.15s ease;
+    opacity: 0.7;
 }
 
 .duino-select__tag-close:hover {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.15);
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 /* Actions container */
@@ -270,13 +303,14 @@
 
 .duino-select__dropdown {
     background: var(--duino-color-bg);
-    border: 1px solid var(--duino-border);
+    border: 1px solid var(--duino-brand-200);
     border-radius: var(--duino-radius);
     box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.1),
+        0 10px 25px rgba(20, 184, 166, 0.1),
         0 4px 6px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     animation: duino-select-dropdown-in 0.15s ease-out;
+    min-width: 200px;
 }
 
 @keyframes duino-select-dropdown-in {
@@ -323,10 +357,11 @@
     display: flex;
     align-items: flex-start;
     gap: var(--duino-gap-sm);
-    padding: 8px 12px;
+    padding: 10px 12px;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: all 0.15s ease;
     border-bottom: 1px solid transparent;
+    position: relative;
 }
 
 .duino-select__option:hover:not(.duino-select__option--disabled) {
@@ -335,11 +370,14 @@
 
 .duino-select__option--focused:not(.duino-select__option--disabled) {
     background: var(--duino-brand-100);
+    border-left: 3px solid var(--duino-brand-400);
+    padding-left: 9px;
 }
 
 .duino-select__option--selected {
     background: var(--duino-brand-500);
     color: white;
+    font-weight: 500;
 }
 
 .duino-select__option--selected:hover {
@@ -407,14 +445,17 @@
 }
 
 .duino-select__group-title {
-    padding: 8px 12px 4px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--duino-color-muted);
+    padding: 10px 12px 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--duino-brand-600);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: var(--duino-brand-25, #fafafa);
-    border-bottom: 1px solid var(--duino-border);
+    letter-spacing: 0.8px;
+    background: linear-gradient(135deg, var(--duino-brand-50), var(--duino-brand-100));
+    border-bottom: 1px solid var(--duino-brand-200);
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 /* Empty state */

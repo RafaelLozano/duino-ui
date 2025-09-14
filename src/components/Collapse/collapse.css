@@ -1,0 +1,441 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
+/* ===== DUINO COLLAPSE - BEM METHODOLOGY ===== */
+
+/* Block: duino-collapse */
+.duino-collapse {
+    font-family: var(--duino-font);
+    color: var(--duino-color-fg);
+    background: var(--duino-color-bg);
+}
+
+/* ===== VARIANTS ===== */
+
+/* Default variant */
+.duino-collapse--default {
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    overflow: hidden;
+}
+
+.duino-collapse--default .duino-collapse__panel:not(:last-child) {
+    border-bottom: 1px solid var(--duino-border);
+}
+
+/* Ghost variant */
+.duino-collapse--ghost {
+    background: transparent;
+}
+
+.duino-collapse--ghost .duino-collapse__panel {
+    border: none;
+    margin-bottom: var(--duino-gap-sm);
+    border-radius: var(--duino-radius);
+    overflow: hidden;
+}
+
+.duino-collapse--ghost .duino-collapse__header {
+    background: var(--duino-brand-50);
+    border: 1px solid var(--duino-brand-200);
+}
+
+.duino-collapse--ghost .duino-collapse__content {
+    border: 1px solid var(--duino-brand-200);
+    border-top: none;
+}
+
+/* Bordered variant */
+.duino-collapse--bordered {
+    border: 2px solid var(--duino-brand-200);
+    border-radius: var(--duino-radius);
+}
+
+.duino-collapse--bordered .duino-collapse__panel:not(:last-child) {
+    border-bottom: 2px solid var(--duino-brand-200);
+}
+
+.duino-collapse--bordered .duino-collapse__header {
+    background: linear-gradient(135deg, var(--duino-brand-50), var(--duino-brand-100));
+}
+
+/* ===== SIZES ===== */
+
+/* Small */
+.duino-collapse--sm .duino-collapse__header {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.duino-collapse--sm .duino-collapse__body {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+.duino-collapse--sm .duino-collapse__arrow {
+    width: 12px;
+    height: 12px;
+}
+
+/* Medium (default) */
+.duino-collapse--md .duino-collapse__header {
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+.duino-collapse--md .duino-collapse__body {
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+.duino-collapse--md .duino-collapse__arrow {
+    width: 14px;
+    height: 14px;
+}
+
+/* Large */
+.duino-collapse--lg .duino-collapse__header {
+    padding: 16px 20px;
+    font-size: 15px;
+}
+
+.duino-collapse--lg .duino-collapse__body {
+    padding: 16px 20px;
+    font-size: 15px;
+}
+
+.duino-collapse--lg .duino-collapse__arrow {
+    width: 16px;
+    height: 16px;
+}
+
+/* ===== ELEMENTS ===== */
+
+/* Panel */
+.duino-collapse__panel {
+    background: var(--duino-color-bg);
+    transition: all 0.2s ease;
+}
+
+.duino-collapse__panel--active {
+    /* Estilos para panel activo */
+}
+
+.duino-collapse__panel--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.duino-collapse__panel--animating {
+    /* Estilos durante animación */
+}
+
+/* Header */
+.duino-collapse__header {
+    display: flex;
+    align-items: center;
+    gap: var(--duino-gap-sm);
+    background: var(--duino-color-bg);
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: all 0.2s ease;
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.duino-collapse__header--clickable {
+    cursor: pointer;
+}
+
+.duino-collapse__header--clickable:hover:not(.duino-collapse__panel--disabled .duino-collapse__header) {
+    background: var(--duino-brand-50);
+}
+
+.duino-collapse__header--clickable:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: -2px;
+}
+
+.duino-collapse__panel--active .duino-collapse__header {
+    background: var(--duino-brand-100);
+    color: var(--duino-brand-700);
+    font-weight: 600;
+}
+
+/* Header content */
+.duino-collapse__header-content {
+    flex: 1;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Extra content */
+.duino-collapse__extra {
+    margin-left: auto;
+    color: var(--duino-color-muted);
+    font-size: 0.9em;
+}
+
+/* Icon */
+.duino-collapse__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--duino-color-muted);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 4px;
+}
+
+.duino-collapse__icon:hover {
+    background: var(--duino-brand-100);
+    color: var(--duino-brand-600);
+}
+
+.duino-collapse__icon--start {
+    order: -1;
+}
+
+.duino-collapse__icon--end {
+    order: 1;
+}
+
+/* Arrow */
+.duino-collapse__arrow {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.duino-collapse__panel--active .duino-collapse__arrow {
+    transform: rotate(180deg);
+}
+
+/* Content */
+.duino-collapse__content {
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--duino-color-bg);
+}
+
+.duino-collapse__body {
+    padding: 12px 16px;
+    border-top: 1px solid var(--duino-border);
+    color: var(--duino-color-fg);
+    line-height: 1.6;
+}
+
+.duino-collapse--ghost .duino-collapse__body {
+    border-top: none;
+    background: var(--duino-color-bg);
+}
+
+/* ===== ACCORDION MODE ===== */
+
+.duino-collapse--accordion .duino-collapse__panel {
+    /* Estilos específicos para modo acordeón */
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-collapse--lg .duino-collapse__header {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .duino-collapse--lg .duino-collapse__body {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+
+    .duino-collapse--md .duino-collapse__header {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .duino-collapse--md .duino-collapse__body {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    .duino-collapse__content {
+        transition: none;
+    }
+
+    .duino-collapse__arrow {
+        transition: none;
+    }
+
+    .duino-collapse__header {
+        transition: none;
+    }
+
+    .duino-collapse__icon {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-collapse--default {
+        border-width: 2px;
+    }
+
+    .duino-collapse__panel:not(:last-child) {
+        border-bottom-width: 2px;
+    }
+
+    .duino-collapse__body {
+        border-top-width: 2px;
+    }
+}
+
+/* Focus styles */
+.duino-collapse__header:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: -2px;
+}
+
+.duino-collapse__icon:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: 1px;
+}
+
+/* ===== CONTENT STYLES ===== */
+
+/* Rich content support */
+.duino-collapse__body h1,
+.duino-collapse__body h2,
+.duino-collapse__body h3,
+.duino-collapse__body h4,
+.duino-collapse__body h5,
+.duino-collapse__body h6 {
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--duino-brand-700);
+}
+
+.duino-collapse__body p {
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+}
+
+.duino-collapse__body p:last-child {
+    margin-bottom: 0;
+}
+
+.duino-collapse__body ul,
+.duino-collapse__body ol {
+    margin: 0 0 12px 0;
+    padding-left: 20px;
+}
+
+.duino-collapse__body li {
+    margin-bottom: 4px;
+    line-height: 1.5;
+}
+
+.duino-collapse__body a {
+    color: var(--duino-brand-500);
+    text-decoration: none;
+}
+
+.duino-collapse__body a:hover {
+    color: var(--duino-brand-600);
+    text-decoration: underline;
+}
+
+.duino-collapse__body code {
+    background: var(--duino-brand-50);
+    color: var(--duino-brand-700);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.duino-collapse__body pre {
+    background: var(--duino-brand-50);
+    color: var(--duino-brand-700);
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    overflow-x: auto;
+    margin: 12px 0;
+    border: 1px solid var(--duino-brand-200);
+}
+
+.duino-collapse__body blockquote {
+    margin: 12px 0;
+    padding: 12px 16px;
+    border-left: 4px solid var(--duino-brand-300);
+    background: var(--duino-brand-50);
+    border-radius: 0 6px 6px 0;
+    font-style: italic;
+}
+
+.duino-collapse__body hr {
+    border: none;
+    border-top: 1px solid var(--duino-border);
+    margin: 16px 0;
+}
+
+/* Interactive content */
+.duino-collapse__body .duino-btn {
+    margin: 4px 4px 4px 0;
+}
+
+/* Images */
+.duino-collapse__body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin: 8px 0;
+}
+
+/* Tables */
+.duino-collapse__body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 0.9em;
+}
+
+.duino-collapse__body th,
+.duino-collapse__body td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--duino-border);
+}
+
+.duino-collapse__body th {
+    font-weight: 600;
+    background: var(--duino-brand-50);
+    color: var(--duino-brand-700);
+}
+
+/* ===== PRINT STYLES ===== */
+
+@media print {
+    .duino-collapse__content {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .duino-collapse__panel {
+        page-break-inside: avoid;
+    }
+
+    .duino-collapse__arrow {
+        display: none;
+    }
+}

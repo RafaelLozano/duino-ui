@@ -4,6 +4,7 @@ import "./styles/index.css";
 
 // ===== COMPONENTES =====
 export { Button } from "./components/Button/Button";
+export { Collapse, CollapsePanel } from "./components/Collapse/Collapse";
 export { Modal } from "./components/Modal/Modal";
 export { MessageProvider, useMessage } from "./components/Message/MessageProvider";
 export { Popover } from "./components/Popover/Popover";
@@ -18,6 +19,13 @@ export type {
   ButtonSize,
   ButtonShape
 } from "./components/Button/Button";
+
+export type { 
+  CollapseProps, 
+  CollapseItem,
+  CollapseSize, 
+  CollapseVariant 
+} from "./components/Collapse/Collapse";
 
 export type { 
   ModalProps 
@@ -72,6 +80,7 @@ export type { DuinoTheme, ThemeProviderProps, ThemeSwitcherProps } from "./theme
 // ===== RE-EXPORTS PARA COMPATIBILIDAD =====
 // Permite importar como: import { Button, ButtonProps } from '@ralorotech/duino-ui'
 export * from "./components/Button/Button";
+export * from "./components/Collapse/Collapse";
 export * from "./components/Modal/Modal";
 export * from "./components/Message/MessageProvider";
 export * from "./components/Popover/Popover";

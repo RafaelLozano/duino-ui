@@ -1,5 +1,6 @@
 // ===== EXPORTS DE COMPONENTES =====
 export { Button } from "./Button/Button";
+export { Collapse, CollapsePanel } from "./Collapse/Collapse";
 export { Modal } from "./Modal/Modal";
 export { MessageProvider, useMessage } from "./Message/MessageProvider";
 export { Popover } from "./Popover/Popover";
@@ -14,6 +15,13 @@ export type {
   ButtonSize, 
   ButtonShape 
 } from "./Button/Button";
+
+export type { 
+  CollapseProps, 
+  CollapseItem,
+  CollapseSize, 
+  CollapseVariant 
+} from "./Collapse/Collapse";
 
 export type { 
   ModalProps 
