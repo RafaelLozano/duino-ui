@@ -5,7 +5,7 @@ import './image.css';
 export type ImageFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 export type ImageShape = 'square' | 'circle' | 'rounded';
 
-export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'onLoad' | 'onError'> {
+export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'onLoad' | 'onError' | 'loading'> {
   // Basic props
   src: string;
   alt: string;
@@ -43,7 +43,7 @@ export interface ImageProps extends Omit<React.ImgHTMLAttributes<HTMLImageElemen
 
 // Hook para Intersection Observer (lazy loading)
 const useIntersectionObserver = (
-  elementRef: React.RefObject<HTMLElement>,
+  elementRef: React.RefObject<HTMLElement | null>,
   options: IntersectionObserverInit
 ) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
