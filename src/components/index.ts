@@ -6,6 +6,7 @@ export { MessageProvider, useMessage } from "./Message/MessageProvider";
 export { Popover } from "./Popover/Popover";
 export { Select } from "./Select/Select";
 export { Sender } from "./Sender/Sender";
+export { Spin } from "./Spin/Spin";
 export { Table } from "./Table/Table";
 
 
@@ -50,6 +51,12 @@ export type {
 export type { 
   SenderProps 
 } from "./Sender/Sender";
+
+export type { 
+  SpinProps, 
+  SpinSize, 
+  SpinType 
+} from "./Spin/Spin";
 
 export type { 
   TableProps, 

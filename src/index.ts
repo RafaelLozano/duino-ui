@@ -10,6 +10,7 @@ export { MessageProvider, useMessage } from "./components/Message/MessageProvide
 export { Popover } from "./components/Popover/Popover";
 export { Select } from "./components/Select/Select";
 export { Sender } from "./components/Sender/Sender";
+export { Spin } from "./components/Spin/Spin";
 export { Table } from "./components/Table/Table";
 
 // ===== TIPOS DE COMPONENTES =====
@@ -56,6 +57,12 @@ export type {
 } from "./components/Sender/Sender";
 
 export type { 
+  SpinProps, 
+  SpinSize, 
+  SpinType 
+} from "./components/Spin/Spin";
+
+export type { 
   TableProps, 
   TableColumn, 
   TableSize, 
@@ -86,4 +93,5 @@ export * from "./components/Message/MessageProvider";
 export * from "./components/Popover/Popover";
 export * from "./components/Select/Select";
 export * from "./components/Sender/Sender";
+export * from "./components/Spin/Spin";
 export * from "./components/Table/Table";
