@@ -1,6 +1,7 @@
 // ===== EXPORTS DE COMPONENTES =====
 export { Button } from "./Button/Button";
 export { Collapse, CollapsePanel } from "./Collapse/Collapse";
+export { Image } from "./Image/Image";
 export { Modal } from "./Modal/Modal";
 export { MessageProvider, useMessage } from "./Message/MessageProvider";
 export { Popover } from "./Popover/Popover";
@@ -8,6 +9,7 @@ export { Select } from "./Select/Select";
 export { Sender } from "./Sender/Sender";
 export { Spin } from "./Spin/Spin";
 export { Table } from "./Table/Table";
+export { Upload } from "./Upload/Upload";
 
 
 export type { 
@@ -23,6 +25,12 @@ export type {
   CollapseSize, 
   CollapseVariant 
 } from "./Collapse/Collapse";
+
+export type { 
+  ImageProps, 
+  ImageFit, 
+  ImageShape 
+} from "./Image/Image";
 
 export type { 
   ModalProps 
@@ -65,3 +73,10 @@ export type {
   SortDirection, 
   TableVariant 
 } from "./Table/Table";
+
+export type { 
+  UploadProps, 
+  UploadFile,
+  UploadType, 
+  UploadListType 
+} from "./Upload/Upload";

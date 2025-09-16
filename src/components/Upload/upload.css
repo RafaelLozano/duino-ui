@@ -1,0 +1,472 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
+/* ===== DUINO UPLOAD - BEM METHODOLOGY ===== */
+
+/* Block: duino-upload */
+.duino-upload {
+    font-family: var(--duino-font);
+    color: var(--duino-color-fg);
+}
+
+.duino-upload--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.duino-upload--disabled * {
+    cursor: not-allowed !important;
+}
+
+/* ===== UPLOAD TYPES ===== */
+
+/* Select type (default) */
+.duino-upload--select {
+    display: inline-block;
+}
+
+/* Drag type */
+.duino-upload--drag {
+    display: block;
+}
+
+.duino-upload__dragger {
+    border: 2px dashed var(--duino-border);
+    border-radius: var(--duino-radius);
+    background: var(--duino-color-bg);
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.duino-upload__dragger:hover:not(.duino-upload--disabled .duino-upload__dragger) {
+    border-color: var(--duino-brand-300);
+    background: var(--duino-brand-50);
+}
+
+.duino-upload--drag-over .duino-upload__dragger {
+    border-color: var(--duino-brand-400);
+    background: var(--duino-brand-100);
+    transform: scale(1.02);
+}
+
+.duino-upload__dragger-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--duino-gap);
+}
+
+.duino-upload__dragger-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--duino-brand-400);
+    margin-bottom: var(--duino-gap-sm);
+}
+
+.duino-upload__dragger-text {
+    color: var(--duino-color-fg);
+}
+
+.duino-upload__dragger-hint {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.duino-upload__dragger-description {
+    margin: 0;
+    font-size: 14px;
+    color: var(--duino-color-muted);
+}
+
+/* Avatar type */
+.duino-upload--avatar {
+    display: inline-block;
+}
+
+.duino-upload__avatar {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed var(--duino-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    background: var(--duino-brand-50);
+}
+
+.duino-upload__avatar:hover:not(.duino-upload--disabled .duino-upload__avatar) {
+    border-color: var(--duino-brand-400);
+    background: var(--duino-brand-100);
+}
+
+.duino-upload__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.duino-upload__avatar-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.duino-upload__avatar-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--duino-color-muted);
+}
+
+.duino-upload__avatar-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.duino-upload__avatar-text {
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ===== FILE LIST ===== */
+
+.duino-upload__list {
+    margin-top: var(--duino-gap);
+}
+
+/* Text list */
+.duino-upload__list--text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--duino-gap-sm);
+}
+
+.duino-upload__file-item {
+    display: flex;
+    align-items: center;
+    gap: var(--duino-gap-sm);
+    padding: 8px 12px;
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    background: var(--duino-color-bg);
+    transition: all 0.2s ease;
+}
+
+.duino-upload__file-item--uploading {
+    border-color: var(--duino-brand-300);
+    background: var(--duino-brand-50);
+}
+
+.duino-upload__file-item--done {
+    border-color: var(--duino-brand-200);
+}
+
+.duino-upload__file-item--error {
+    border-color: var(--duino-danger-500);
+    background: color-mix(in srgb, var(--duino-danger-500) 5%, transparent);
+}
+
+/* Picture list */
+.duino-upload__list--picture .duino-upload__file-item {
+    padding: 12px;
+}
+
+.duino-upload__file-thumb {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--duino-border);
+}
+
+/* Picture card list */
+.duino-upload__list--picture-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--duino-gap);
+}
+
+.duino-upload__file-card {
+    position: relative;
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    overflow: hidden;
+    background: var(--duino-color-bg);
+    aspect-ratio: 1;
+    transition: all 0.2s ease;
+}
+
+.duino-upload__file-card:hover {
+    border-color: var(--duino-brand-300);
+    box-shadow: 0 2px 8px rgba(20, 184, 166, 0.1);
+}
+
+.duino-upload__file-thumbnail {
+    width: 100%;
+    height: calc(100% - 32px);
+    object-fit: cover;
+}
+
+.duino-upload__file-icon {
+    width: 100%;
+    height: calc(100% - 32px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    background: var(--duino-brand-50);
+}
+
+.duino-upload__file-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 8px;
+    background: var(--duino-color-bg);
+    border-top: 1px solid var(--duino-border);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duino-upload__file-actions {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    display: flex;
+    gap: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.duino-upload__file-card:hover .duino-upload__file-actions {
+    opacity: 1;
+}
+
+/* File info */
+.duino-upload__file-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.duino-upload__file-name {
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.duino-upload__file-size {
+    font-size: 12px;
+    color: var(--duino-color-muted);
+    margin-top: 2px;
+}
+
+.duino-upload__file-error {
+    font-size: 12px;
+    color: var(--duino-danger-500);
+    margin-top: 2px;
+}
+
+/* Progress */
+.duino-upload__file-progress {
+    position: relative;
+    margin-top: 4px;
+    height: 4px;
+    background: var(--duino-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.duino-upload__progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--duino-brand-400), var(--duino-brand-500));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.duino-upload__progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: duino-upload-progress-shine 2s infinite;
+}
+
+@keyframes duino-upload-progress-shine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.duino-upload__progress-text {
+    font-size: 11px;
+    color: var(--duino-brand-600);
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+/* Action buttons */
+.duino-upload__action-btn {
+    appearance: none;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px;
+    transition: background-color 0.2s ease;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.duino-upload__action-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.duino-upload__action-btn--danger {
+    background: var(--duino-danger-500);
+}
+
+.duino-upload__action-btn--danger:hover {
+    background: #dc2626;
+}
+
+/* For text/picture lists */
+.duino-upload__list--text .duino-upload__file-actions,
+.duino-upload__list--picture .duino-upload__file-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 1;
+}
+
+.duino-upload__list--text .duino-upload__action-btn,
+.duino-upload__list--picture .duino-upload__action-btn {
+    background: none;
+    color: var(--duino-color-muted);
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    height: auto;
+    width: auto;
+}
+
+.duino-upload__list--text .duino-upload__action-btn:hover,
+.duino-upload__list--picture .duino-upload__action-btn:hover {
+    background: var(--duino-border);
+    color: var(--duino-color-fg);
+}
+
+.duino-upload__list--text .duino-upload__action-btn--danger:hover,
+.duino-upload__list--picture .duino-upload__action-btn--danger:hover {
+    background: var(--duino-danger-500);
+    color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-upload__dragger {
+        padding: 30px 16px;
+    }
+
+    .duino-upload__dragger-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .duino-upload__dragger-hint {
+        font-size: 15px;
+    }
+
+    .duino-upload__dragger-description {
+        font-size: 13px;
+    }
+
+    .duino-upload__list--picture-card {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .duino-upload__avatar {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .duino-upload__dragger,
+    .duino-upload__file-item,
+    .duino-upload__file-card,
+    .duino-upload__action-btn {
+        transition: none;
+    }
+
+    .duino-upload--drag-over .duino-upload__dragger {
+        transform: none;
+    }
+
+    .duino-upload__progress-bar::after {
+        animation: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-upload__dragger {
+        border-width: 3px;
+    }
+
+    .duino-upload__file-item {
+        border-width: 2px;
+    }
+}
+
+/* Focus styles */
+.duino-upload__dragger:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: 2px;
+}
+
+.duino-upload__action-btn:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: 1px;
+}
+
+/* Print styles */
+@media print {
+    .duino-upload__file-actions {
+        display: none;
+    }
+
+    .duino-upload__dragger {
+        border-style: solid;
+    }
+}

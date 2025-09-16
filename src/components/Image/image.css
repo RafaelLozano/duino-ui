@@ -1,0 +1,326 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
+/* ===== DUINO IMAGE - BEM METHODOLOGY ===== */
+
+/* Block: duino-image */
+.duino-image {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: var(--duino-brand-50);
+    transition: all 0.2s ease;
+}
+
+/* ===== SHAPES ===== */
+
+.duino-image--square {
+    border-radius: 0;
+}
+
+.duino-image--rounded {
+    border-radius: var(--duino-radius);
+}
+
+.duino-image--circle {
+    border-radius: 50%;
+    aspect-ratio: 1;
+}
+
+/* ===== MODIFIERS ===== */
+
+.duino-image--bordered {
+    border: 2px solid var(--duino-border);
+}
+
+.duino-image--shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.duino-image--preview {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.duino-image--preview:hover {
+    transform: scale(1.02);
+}
+
+/* ===== FIT TYPES ===== */
+
+.duino-image--fill .duino-image__img {
+    object-fit: fill;
+}
+
+.duino-image--contain .duino-image__img {
+    object-fit: contain;
+}
+
+.duino-image--cover .duino-image__img {
+    object-fit: cover;
+}
+
+.duino-image--none .duino-image__img {
+    object-fit: none;
+}
+
+.duino-image--scale-down .duino-image__img {
+    object-fit: scale-down;
+}
+
+/* ===== ELEMENTS ===== */
+
+/* Image element */
+.duino-image__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.duino-image__img--loading {
+    opacity: 0;
+}
+
+.duino-image__img--loaded {
+    opacity: 1;
+}
+
+.duino-image__img--error {
+    opacity: 0;
+}
+
+/* Loading state */
+.duino-image__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--duino-brand-50);
+}
+
+/* Error state */
+.duino-image__error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--duino-brand-50);
+    color: var(--duino-color-muted);
+    gap: var(--duino-gap-sm);
+}
+
+.duino-image__error-icon {
+    width: 24px;
+    height: 24px;
+    opacity: 0.5;
+}
+
+.duino-image__error-text {
+    font-size: 12px;
+    text-align: center;
+}
+
+/* Placeholder */
+.duino-image__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--duino-brand-50);
+    color: var(--duino-color-muted);
+}
+
+.duino-image__placeholder-icon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+
+/* Preview overlay */
+.duino-image__preview-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.duino-image--preview:hover .duino-image__preview-overlay {
+    opacity: 1;
+}
+
+.duino-image__preview-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+/* Caption */
+.duino-image__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* ===== PREVIEW MODAL ===== */
+
+.duino-image__preview-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    cursor: pointer;
+    animation: duino-image-modal-in 0.2s ease-out;
+}
+
+@keyframes duino-image-modal-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.duino-image__preview-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    cursor: default;
+}
+
+.duino-image__preview-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: var(--duino-radius);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.duino-image__preview-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--duino-color-fg);
+    transition: background-color 0.2s ease;
+}
+
+.duino-image__preview-close:hover {
+    background: white;
+}
+
+.duino-image__preview-caption {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-image__preview-content {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .duino-image__preview-close {
+        top: -35px;
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .duino-image__preview-caption {
+        bottom: -35px;
+        font-size: 13px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .duino-image,
+    .duino-image__img,
+    .duino-image__preview-overlay {
+        transition: none;
+    }
+
+    .duino-image__preview-modal {
+        animation: none;
+    }
+
+    .duino-image--preview:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-image--bordered {
+        border-width: 3px;
+    }
+
+    .duino-image__preview-overlay {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* Print styles */
+@media print {
+    .duino-image__preview-modal {
+        display: none !important;
+    }
+
+    .duino-image__preview-overlay {
+        display: none;
+    }
+}

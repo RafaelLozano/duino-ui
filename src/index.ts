@@ -5,6 +5,7 @@ import "./styles/index.css";
 // ===== COMPONENTES =====
 export { Button } from "./components/Button/Button";
 export { Collapse, CollapsePanel } from "./components/Collapse/Collapse";
+export { Image } from "./components/Image/Image";
 export { Modal } from "./components/Modal/Modal";
 export { MessageProvider, useMessage } from "./components/Message/MessageProvider";
 export { Popover } from "./components/Popover/Popover";
@@ -12,6 +13,7 @@ export { Select } from "./components/Select/Select";
 export { Sender } from "./components/Sender/Sender";
 export { Spin } from "./components/Spin/Spin";
 export { Table } from "./components/Table/Table";
+export { Upload } from "./components/Upload/Upload";
 
 // ===== TIPOS DE COMPONENTES =====
 export type { 
@@ -27,6 +29,12 @@ export type {
   CollapseSize, 
   CollapseVariant 
 } from "./components/Collapse/Collapse";
+
+export type { 
+  ImageProps, 
+  ImageFit, 
+  ImageShape 
+} from "./components/Image/Image";
 
 export type { 
   ModalProps 
@@ -70,6 +78,13 @@ export type {
   TableVariant 
 } from "./components/Table/Table";
 
+export type { 
+  UploadProps, 
+  UploadFile,
+  UploadType, 
+  UploadListType 
+} from "./components/Upload/Upload";
+
 // ===== UTILIDADES =====
 export { bem } from "./utils/bem";
 export { cx } from "./utils/cx";
@@ -88,6 +103,7 @@ export type { DuinoTheme, ThemeProviderProps, ThemeSwitcherProps } from "./theme
 // Permite importar como: import { Button, ButtonProps } from '@ralorotech/duino-ui'
 export * from "./components/Button/Button";
 export * from "./components/Collapse/Collapse";
+export * from "./components/Image/Image";
 export * from "./components/Modal/Modal";
 export * from "./components/Message/MessageProvider";
 export * from "./components/Popover/Popover";
@@ -95,3 +111,4 @@ export * from "./components/Select/Select";
 export * from "./components/Sender/Sender";
 export * from "./components/Spin/Spin";
 export * from "./components/Table/Table";
+export * from "./components/Upload/Upload";
