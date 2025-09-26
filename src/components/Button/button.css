@@ -26,8 +26,17 @@
     -webkit-user-select: none;
     user-select: none;
 
-    /* Transiciones suaves */
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Transiciones suaves optimizadas */
+    transition:
+        background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Optimización para animaciones suaves */
+    will-change: transform, box-shadow;
+    transform: translateY(0);
 
     /* Enfoque */
     outline: none;
@@ -46,13 +55,14 @@
     color: white;
     border-color: var(--duino-brand-600);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
 }
 
 .duino-btn--primary:hover:not(.duino-btn--disabled) {
     background: linear-gradient(135deg, var(--duino-brand-600), var(--duino-brand-700));
     border-color: var(--duino-brand-700);
     box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
-    transform: translateY(-1px);
+    transform: translateY(-0.5px);
 }
 
 .duino-btn--primary:active:not(.duino-btn--disabled) {
@@ -66,6 +76,8 @@
     background: var(--duino-color-bg);
     color: var(--duino-brand-600);
     border-color: var(--duino-brand-300);
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .duino-btn--secondary:hover:not(.duino-btn--disabled) {
@@ -85,6 +97,8 @@
     background: transparent;
     color: var(--duino-brand-600);
     border-color: transparent;
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .duino-btn--ghost:hover:not(.duino-btn--disabled) {
@@ -103,6 +117,8 @@
     border-color: transparent;
     padding-left: 0;
     padding-right: 0;
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .duino-btn--text:hover:not(.duino-btn--disabled) {
@@ -120,13 +136,14 @@
     color: white;
     border-color: #dc2626;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
 }
 
 .duino-btn--danger:hover:not(.duino-btn--disabled) {
     background: linear-gradient(135deg, #dc2626, #b91c1c);
     border-color: #b91c1c;
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-    transform: translateY(-1px);
+    transform: translateY(-0.5px);
 }
 
 .duino-btn--danger:active:not(.duino-btn--disabled) {
@@ -201,12 +218,13 @@
 .duino-btn--disabled {
     cursor: not-allowed;
     opacity: 0.6;
-    transform: none !important;
+    transform: translateY(0) !important;
     box-shadow: none !important;
+    will-change: auto;
 }
 
 .duino-btn--disabled:hover {
-    transform: none !important;
+    transform: translateY(0) !important;
     box-shadow: none !important;
 }
 
