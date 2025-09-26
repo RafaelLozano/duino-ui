@@ -1,0 +1,475 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
+/* ===== DUINO INPUT - BEM METHODOLOGY ===== */
+
+/* Block: duino-input-wrapper */
+.duino-input-wrapper {
+    font-family: var(--duino-font);
+    color: var(--duino-color-fg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--duino-gap-sm);
+}
+
+.duino-input-wrapper--with-label {
+    gap: 6px;
+}
+
+/* Block: duino-input */
+.duino-input {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    border-radius: var(--duino-radius);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--duino-color-bg);
+    border: 1px solid var(--duino-border);
+}
+
+/* ===== VARIANTS ===== */
+
+/* Default variant - estilos ya definidos arriba */
+
+/* Filled variant */
+.duino-input--filled {
+    background: var(--duino-brand-50);
+    border-color: transparent;
+}
+
+.duino-input--filled:hover:not(.duino-input--disabled) {
+    background: var(--duino-brand-100);
+}
+
+.duino-input--filled.duino-input--focused {
+    background: var(--duino-color-bg);
+    border-color: var(--duino-brand-400);
+}
+
+/* Borderless variant */
+.duino-input--borderless {
+    background: transparent;
+    border-color: transparent;
+    border-bottom: 1px solid var(--duino-border);
+    border-radius: 0;
+}
+
+.duino-input--borderless:hover:not(.duino-input--disabled) {
+    border-bottom-color: var(--duino-brand-300);
+}
+
+.duino-input--borderless.duino-input--focused {
+    border-bottom-color: var(--duino-brand-500);
+    border-bottom-width: 2px;
+}
+
+/* ===== SIZES ===== */
+
+/* Small */
+.duino-input--sm {
+    min-height: 28px;
+    font-size: 13px;
+}
+
+.duino-input--sm .duino-input__element {
+    padding: 4px 8px;
+}
+
+.duino-input--sm .duino-input__prefix,
+.duino-input--sm .duino-input__suffix {
+    padding: 0 6px;
+}
+
+/* Medium (default) */
+.duino-input--md {
+    min-height: 36px;
+    font-size: 14px;
+}
+
+.duino-input--md .duino-input__element {
+    padding: 8px 12px;
+}
+
+.duino-input--md .duino-input__prefix,
+.duino-input--md .duino-input__suffix {
+    padding: 0 8px;
+}
+
+/* Large */
+.duino-input--lg {
+    min-height: 44px;
+    font-size: 15px;
+}
+
+.duino-input--lg .duino-input__element {
+    padding: 12px 16px;
+}
+
+.duino-input--lg .duino-input__prefix,
+.duino-input--lg .duino-input__suffix {
+    padding: 0 12px;
+}
+
+/* ===== STATES ===== */
+
+/* Hover */
+.duino-input:hover:not(.duino-input--disabled):not(.duino-input--readonly) {
+    border-color: var(--duino-brand-300);
+}
+
+/* Focus */
+.duino-input--focused {
+    border-color: var(--duino-brand-400);
+    box-shadow: 0 0 0 3px var(--duino-ring);
+}
+
+/* Error */
+.duino-input--error {
+    border-color: var(--duino-danger-500);
+}
+
+.duino-input--error.duino-input--focused {
+    border-color: var(--duino-danger-500);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--duino-danger-500) 20%, transparent);
+}
+
+/* Success */
+.duino-input--success {
+    border-color: var(--duino-brand-500);
+}
+
+.duino-input--success.duino-input--focused {
+    border-color: var(--duino-brand-500);
+    box-shadow: 0 0 0 3px var(--duino-ring);
+}
+
+/* Disabled */
+.duino-input--disabled {
+    background: var(--duino-border);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.duino-input--disabled .duino-input__element {
+    cursor: not-allowed;
+    background: transparent;
+}
+
+/* Readonly */
+.duino-input--readonly {
+    background: var(--duino-brand-25, #fafafa);
+}
+
+.duino-input--readonly .duino-input__element {
+    cursor: default;
+}
+
+/* Loading */
+.duino-input--loading {
+    cursor: wait;
+}
+
+/* ===== ELEMENTS ===== */
+
+/* Label */
+.duino-input__label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--duino-color-fg);
+    cursor: pointer;
+}
+
+.duino-input__required {
+    color: var(--duino-danger-500);
+    margin-left: 2px;
+}
+
+/* Input element */
+.duino-input__element {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    min-width: 0;
+    width: 100%;
+}
+
+.duino-input__element::placeholder {
+    color: var(--duino-color-muted);
+    opacity: 1;
+}
+
+.duino-input__element:disabled {
+    cursor: not-allowed;
+}
+
+/* Prefix and Suffix */
+.duino-input__prefix,
+.duino-input__suffix {
+    display: flex;
+    align-items: center;
+    color: var(--duino-color-muted);
+    flex-shrink: 0;
+}
+
+.duino-input__prefix {
+    border-right: 1px solid var(--duino-border);
+    margin-right: 8px;
+}
+
+.duino-input__suffix {
+    gap: 4px;
+}
+
+/* Action buttons */
+.duino-input__password-toggle,
+.duino-input__clear,
+.duino-input__search-btn {
+    appearance: none;
+    background: none;
+    border: none;
+    color: var(--duino-color-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.duino-input__password-toggle svg,
+.duino-input__clear svg {
+    width: 14px;
+    height: 14px;
+}
+
+.duino-input__search-btn svg,
+.duino-input__search-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.duino-input__password-toggle:hover,
+.duino-input__clear:hover,
+.duino-input__search-btn:hover {
+    background: var(--duino-border);
+    color: var(--duino-color-fg);
+}
+
+.duino-input__search-btn {
+    background: var(--duino-brand-500);
+    color: white;
+    border-radius: calc(var(--duino-radius) / 2);
+    padding: 6px;
+}
+
+.duino-input__search-btn:hover {
+    background: var(--duino-brand-600);
+    color: white;
+}
+
+.duino-input__search-icon {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+/* Loading indicator */
+.duino-input__loading {
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+}
+
+/* Character count */
+.duino-input__count {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 11px;
+    color: var(--duino-color-muted);
+    font-weight: 500;
+}
+
+.duino-input--error .duino-input__count {
+    color: var(--duino-danger-500);
+}
+
+/* Help text */
+.duino-input__help {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.duino-input__helper-text {
+    color: var(--duino-color-muted);
+}
+
+.duino-input__error-text {
+    color: var(--duino-danger-500);
+    font-weight: 500;
+}
+
+/* Addons */
+.duino-input__addon {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    background: var(--duino-brand-50);
+    border: 1px solid var(--duino-border);
+    color: var(--duino-color-muted);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.duino-input__addon--before {
+    border-right: none;
+    border-top-left-radius: var(--duino-radius);
+    border-bottom-left-radius: var(--duino-radius);
+}
+
+.duino-input__addon--after {
+    border-left: none;
+    border-top-right-radius: var(--duino-radius);
+    border-bottom-right-radius: var(--duino-radius);
+}
+
+.duino-input--with-addons .duino-input__addon--before+.duino-input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.duino-input--with-addons:has(+ .duino-input__addon--after) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* ===== TEXTAREA SPECIFIC ===== */
+
+.duino-textarea {
+    align-items: flex-start;
+}
+
+.duino-textarea__element {
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.5;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.duino-textarea .duino-input__suffix {
+    align-self: flex-end;
+    padding-bottom: 8px;
+}
+
+.duino-textarea .duino-input__count {
+    bottom: 4px;
+    right: 8px;
+}
+
+/* ===== INPUT GROUP ===== */
+
+.duino-input-group {
+    display: flex;
+    width: 100%;
+}
+
+.duino-input-group--compact {
+    gap: 0;
+}
+
+.duino-input-group__item:not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+.duino-input-group__item:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.duino-input-group__item:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.duino-input-group--compact .duino-input-group__item:not(:first-child) {
+    border-left: none;
+}
+
+.duino-input-group--compact .duino-input-group__item:focus-within {
+    z-index: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-input--lg {
+        min-height: 40px;
+        font-size: 14px;
+    }
+
+    .duino-input--lg .duino-input__element {
+        padding: 10px 14px;
+    }
+
+    .duino-input__addon {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+
+    .duino-textarea__element {
+        min-height: 80px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .duino-input,
+    .duino-input__password-toggle,
+    .duino-input__clear,
+    .duino-input__search-btn {
+        transition: none;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-input {
+        border-width: 2px;
+    }
+
+    .duino-input--focused {
+        box-shadow: 0 0 0 3px var(--duino-ring);
+    }
+}
+
+/* Focus styles */
+.duino-input__password-toggle:focus-visible,
+.duino-input__clear:focus-visible,
+.duino-input__search-btn:focus-visible {
+    outline: 2px solid var(--duino-ring);
+    outline-offset: 1px;
+}
+
+/* Print styles */
+@media print {
+
+    .duino-input__password-toggle,
+    .duino-input__clear {
+        display: none;
+    }
+
+    .duino-input {
+        border-color: #000;
+        box-shadow: none;
+    }
+}

@@ -6,6 +6,7 @@ import "./styles/index.css";
 export { Button } from "./components/Button/Button";
 export { Collapse, CollapsePanel } from "./components/Collapse/Collapse";
 export { Image } from "./components/Image/Image";
+export { Input, TextArea, InputGroup, Search } from "./components/Input/Input";
 export { Modal } from "./components/Modal/Modal";
 export { MessageProvider, useMessage } from "./components/Message/MessageProvider";
 export { Popover } from "./components/Popover/Popover";
@@ -35,6 +36,16 @@ export type {
   ImageFit, 
   ImageShape 
 } from "./components/Image/Image";
+
+export type { 
+  InputProps, 
+  TextAreaProps,
+  InputGroupProps,
+  SearchProps,
+  InputSize, 
+  InputVariant,
+  InputType
+} from "./components/Input/Input";
 
 export type { 
   ModalProps 
@@ -104,6 +115,7 @@ export type { DuinoTheme, ThemeProviderProps, ThemeSwitcherProps } from "./theme
 export * from "./components/Button/Button";
 export * from "./components/Collapse/Collapse";
 export * from "./components/Image/Image";
+export * from "./components/Input/Input";
 export * from "./components/Modal/Modal";
 export * from "./components/Message/MessageProvider";
 export * from "./components/Popover/Popover";

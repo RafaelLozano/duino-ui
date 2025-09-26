@@ -2,6 +2,7 @@
 export { Button } from "./Button/Button";
 export { Collapse, CollapsePanel } from "./Collapse/Collapse";
 export { Image } from "./Image/Image";
+export { Input, TextArea, InputGroup, Search } from "./Input/Input";
 export { Modal } from "./Modal/Modal";
 export { MessageProvider, useMessage } from "./Message/MessageProvider";
 export { Popover } from "./Popover/Popover";
@@ -31,6 +32,16 @@ export type {
   ImageFit, 
   ImageShape 
 } from "./Image/Image";
+
+export type { 
+  InputProps, 
+  TextAreaProps,
+  InputGroupProps,
+  SearchProps,
+  InputSize, 
+  InputVariant,
+  InputType
+} from "./Input/Input";
 
 export type { 
   ModalProps 
