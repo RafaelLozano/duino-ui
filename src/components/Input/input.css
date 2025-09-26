@@ -1,3 +1,6 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
 /* ===== DUINO INPUT - BEM METHODOLOGY ===== */
 
 /* Block: duino-input-wrapper */

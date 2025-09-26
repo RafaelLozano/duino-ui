@@ -47,7 +47,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "build:css": "mkdir -p dist && (cat src/styles/tokens.css 2>/dev/null || true) > dist/styles.css && find src/components -name '*.css' -exec cat {} + >> dist/styles.css",
+    "build:css": "node scripts/build-css.js",
     "dev": "tsup --watch",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
@@ -79,6 +79,7 @@
     "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-storybook": "^9.1.4",
+    "glob": "^11.0.3",
     "jsdom": "^26.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

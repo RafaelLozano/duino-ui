@@ -1,3 +1,6 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
 /* ===== DUINO SELECT - BEM METHODOLOGY ===== */
 
 /* Block: duino-select */

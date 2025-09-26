@@ -1,3 +1,6 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
 /* ===== DUINO TABLE - BEM METHODOLOGY ===== */
 
 /* Block: duino-table-wrapper */
