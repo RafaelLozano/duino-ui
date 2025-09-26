@@ -521,9 +521,10 @@ export const InputGroup: React.FC<InputGroupProps> = ({
       {React.Children.map(children, (child, index) => {
         if (!React.isValidElement(child)) return child;
         
-        return React.cloneElement(child as React.ReactElement<{ className?: string, size?: InputSize }>, {
+        const childElement = child as React.ReactElement<{ className?: string; size?: InputSize }>;
+        return React.cloneElement(childElement, {
           size,
-          className: `${child.props.className || ''} duino-input-group__item`.trim(),
+          className: `${childElement.props.className || ''} duino-input-group__item`.trim(),
         });
       })}
     </div>
