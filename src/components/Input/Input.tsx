@@ -89,7 +89,7 @@ export interface TextAreaProps extends Omit<React.TextareaHTMLAttributes<HTMLTex
 
 // Hook para auto-resize de textarea
 const useAutoSize = (
-  textareaRef: React.RefObject<HTMLTextAreaElement>,
+  textareaRef: React.RefObject<HTMLTextAreaElement | null>,
   autoSize: boolean | { minRows?: number; maxRows?: number },
   value: string
 ) => {
@@ -521,7 +521,7 @@ export const InputGroup: React.FC<InputGroupProps> = ({
       {React.Children.map(children, (child, index) => {
         if (!React.isValidElement(child)) return child;
         
-        return React.cloneElement(child as React.ReactElement<any>, {
+        return React.cloneElement(child as React.ReactElement<{ className?: string, size?: InputSize }>, {
           size,
           className: `${child.props.className || ''} duino-input-group__item`.trim(),
         });
