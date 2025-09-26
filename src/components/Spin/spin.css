@@ -1,6 +1,3 @@
-/* Import tokens */
-@import "../../styles/tokens.css";
-
 /* ===== DUINO SPIN - BEM METHODOLOGY ===== */
 
 /* Block: duino-spin */
@@ -81,8 +78,13 @@
 }
 
 @keyframes duino-spin-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes duino-spin-dash {
@@ -90,10 +92,12 @@
     stroke-dasharray: 1, 150;
     stroke-dashoffset: 0;
   }
+
   50% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -35;
   }
+
   100% {
     stroke-dasharray: 90, 150;
     stroke-dashoffset: -124;
@@ -107,11 +111,25 @@
   align-items: center;
 }
 
-.duino-spin__dots--xs { gap: 2px; }
-.duino-spin__dots--sm { gap: 3px; }
-.duino-spin__dots--md { gap: 4px; }
-.duino-spin__dots--lg { gap: 5px; }
-.duino-spin__dots--xl { gap: 6px; }
+.duino-spin__dots--xs {
+  gap: 2px;
+}
+
+.duino-spin__dots--sm {
+  gap: 3px;
+}
+
+.duino-spin__dots--md {
+  gap: 4px;
+}
+
+.duino-spin__dots--lg {
+  gap: 5px;
+}
+
+.duino-spin__dots--xl {
+  gap: 6px;
+}
 
 .duino-spin__dot {
   background: currentColor;
@@ -119,21 +137,52 @@
   animation: duino-spin-dots 1.4s ease-in-out infinite both;
 }
 
-.duino-spin__dots--xs .duino-spin__dot { width: 3px; height: 3px; }
-.duino-spin__dots--sm .duino-spin__dot { width: 4px; height: 4px; }
-.duino-spin__dots--md .duino-spin__dot { width: 6px; height: 6px; }
-.duino-spin__dots--lg .duino-spin__dot { width: 8px; height: 8px; }
-.duino-spin__dots--xl .duino-spin__dot { width: 10px; height: 10px; }
+.duino-spin__dots--xs .duino-spin__dot {
+  width: 3px;
+  height: 3px;
+}
 
-.duino-spin__dot--1 { animation-delay: -0.32s; }
-.duino-spin__dot--2 { animation-delay: -0.16s; }
-.duino-spin__dot--3 { animation-delay: 0s; }
+.duino-spin__dots--sm .duino-spin__dot {
+  width: 4px;
+  height: 4px;
+}
+
+.duino-spin__dots--md .duino-spin__dot {
+  width: 6px;
+  height: 6px;
+}
+
+.duino-spin__dots--lg .duino-spin__dot {
+  width: 8px;
+  height: 8px;
+}
+
+.duino-spin__dots--xl .duino-spin__dot {
+  width: 10px;
+  height: 10px;
+}
+
+.duino-spin__dot--1 {
+  animation-delay: -0.32s;
+}
+
+.duino-spin__dot--2 {
+  animation-delay: -0.16s;
+}
+
+.duino-spin__dot--3 {
+  animation-delay: 0s;
+}
 
 @keyframes duino-spin-dots {
-  0%, 80%, 100% {
+
+  0%,
+  80%,
+  100% {
     transform: scale(0);
     opacity: 0.5;
   }
+
   40% {
     transform: scale(1);
     opacity: 1;
@@ -148,11 +197,30 @@
   justify-content: center;
 }
 
-.duino-spin__pulse--xs { width: 12px; height: 12px; }
-.duino-spin__pulse--sm { width: 16px; height: 16px; }
-.duino-spin__pulse--md { width: 24px; height: 24px; }
-.duino-spin__pulse--lg { width: 32px; height: 32px; }
-.duino-spin__pulse--xl { width: 48px; height: 48px; }
+.duino-spin__pulse--xs {
+  width: 12px;
+  height: 12px;
+}
+
+.duino-spin__pulse--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.duino-spin__pulse--md {
+  width: 24px;
+  height: 24px;
+}
+
+.duino-spin__pulse--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.duino-spin__pulse--xl {
+  width: 48px;
+  height: 48px;
+}
 
 .duino-spin__pulse-ring {
   position: absolute;
@@ -184,6 +252,7 @@
     transform: scale(0);
     opacity: 1;
   }
+
   100% {
     transform: scale(1);
     opacity: 0;
@@ -197,34 +266,85 @@
   align-items: center;
 }
 
-.duino-spin__bars--xs { gap: 1px; }
-.duino-spin__bars--sm { gap: 1.5px; }
-.duino-spin__bars--md { gap: 2px; }
-.duino-spin__bars--lg { gap: 3px; }
-.duino-spin__bars--xl { gap: 4px; }
+.duino-spin__bars--xs {
+  gap: 1px;
+}
+
+.duino-spin__bars--sm {
+  gap: 1.5px;
+}
+
+.duino-spin__bars--md {
+  gap: 2px;
+}
+
+.duino-spin__bars--lg {
+  gap: 3px;
+}
+
+.duino-spin__bars--xl {
+  gap: 4px;
+}
 
 .duino-spin__bar {
   background: currentColor;
   animation: duino-spin-bars 1s ease-in-out infinite;
 }
 
-.duino-spin__bars--xs .duino-spin__bar { width: 2px; height: 8px; }
-.duino-spin__bars--sm .duino-spin__bar { width: 2px; height: 12px; }
-.duino-spin__bars--md .duino-spin__bar { width: 3px; height: 16px; }
-.duino-spin__bars--lg .duino-spin__bar { width: 4px; height: 20px; }
-.duino-spin__bars--xl .duino-spin__bar { width: 5px; height: 28px; }
+.duino-spin__bars--xs .duino-spin__bar {
+  width: 2px;
+  height: 8px;
+}
 
-.duino-spin__bar--1 { animation-delay: -0.4s; }
-.duino-spin__bar--2 { animation-delay: -0.3s; }
-.duino-spin__bar--3 { animation-delay: -0.2s; }
-.duino-spin__bar--4 { animation-delay: -0.1s; }
-.duino-spin__bar--5 { animation-delay: 0s; }
+.duino-spin__bars--sm .duino-spin__bar {
+  width: 2px;
+  height: 12px;
+}
+
+.duino-spin__bars--md .duino-spin__bar {
+  width: 3px;
+  height: 16px;
+}
+
+.duino-spin__bars--lg .duino-spin__bar {
+  width: 4px;
+  height: 20px;
+}
+
+.duino-spin__bars--xl .duino-spin__bar {
+  width: 5px;
+  height: 28px;
+}
+
+.duino-spin__bar--1 {
+  animation-delay: -0.4s;
+}
+
+.duino-spin__bar--2 {
+  animation-delay: -0.3s;
+}
+
+.duino-spin__bar--3 {
+  animation-delay: -0.2s;
+}
+
+.duino-spin__bar--4 {
+  animation-delay: -0.1s;
+}
+
+.duino-spin__bar--5 {
+  animation-delay: 0s;
+}
 
 @keyframes duino-spin-bars {
-  0%, 40%, 100% {
+
+  0%,
+  40%,
+  100% {
     transform: scaleY(0.4);
     opacity: 0.7;
   }
+
   20% {
     transform: scaleY(1);
     opacity: 1;
@@ -239,11 +359,30 @@
   justify-content: center;
 }
 
-.duino-spin__ring--xs { width: 12px; height: 12px; }
-.duino-spin__ring--sm { width: 16px; height: 16px; }
-.duino-spin__ring--md { width: 24px; height: 24px; }
-.duino-spin__ring--lg { width: 32px; height: 32px; }
-.duino-spin__ring--xl { width: 48px; height: 48px; }
+.duino-spin__ring--xs {
+  width: 12px;
+  height: 12px;
+}
+
+.duino-spin__ring--sm {
+  width: 16px;
+  height: 16px;
+}
+
+.duino-spin__ring--md {
+  width: 24px;
+  height: 24px;
+}
+
+.duino-spin__ring--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.duino-spin__ring--xl {
+  width: 48px;
+  height: 48px;
+}
 
 .duino-spin__ring-segment {
   position: absolute;
@@ -279,9 +418,11 @@
     transform: rotate(0deg);
     opacity: 1;
   }
+
   50% {
     opacity: 0.3;
   }
+
   100% {
     transform: rotate(360deg);
     opacity: 1;
@@ -295,11 +436,25 @@
   align-items: end;
 }
 
-.duino-spin__wave--xs { gap: 1px; }
-.duino-spin__wave--sm { gap: 1.5px; }
-.duino-spin__wave--md { gap: 2px; }
-.duino-spin__wave--lg { gap: 3px; }
-.duino-spin__wave--xl { gap: 4px; }
+.duino-spin__wave--xs {
+  gap: 1px;
+}
+
+.duino-spin__wave--sm {
+  gap: 1.5px;
+}
+
+.duino-spin__wave--md {
+  gap: 2px;
+}
+
+.duino-spin__wave--lg {
+  gap: 3px;
+}
+
+.duino-spin__wave--xl {
+  gap: 4px;
+}
 
 .duino-spin__wave-bar {
   background: currentColor;
@@ -307,22 +462,59 @@
   animation: duino-spin-wave 1.2s ease-in-out infinite;
 }
 
-.duino-spin__wave--xs .duino-spin__wave-bar { width: 2px; height: 6px; }
-.duino-spin__wave--sm .duino-spin__wave-bar { width: 2px; height: 10px; }
-.duino-spin__wave--md .duino-spin__wave-bar { width: 3px; height: 14px; }
-.duino-spin__wave--lg .duino-spin__wave-bar { width: 4px; height: 18px; }
-.duino-spin__wave--xl .duino-spin__wave-bar { width: 5px; height: 24px; }
+.duino-spin__wave--xs .duino-spin__wave-bar {
+  width: 2px;
+  height: 6px;
+}
 
-.duino-spin__wave-bar--1 { animation-delay: -0.4s; }
-.duino-spin__wave-bar--2 { animation-delay: -0.3s; }
-.duino-spin__wave-bar--3 { animation-delay: -0.2s; }
-.duino-spin__wave-bar--4 { animation-delay: -0.1s; }
-.duino-spin__wave-bar--5 { animation-delay: 0s; }
+.duino-spin__wave--sm .duino-spin__wave-bar {
+  width: 2px;
+  height: 10px;
+}
+
+.duino-spin__wave--md .duino-spin__wave-bar {
+  width: 3px;
+  height: 14px;
+}
+
+.duino-spin__wave--lg .duino-spin__wave-bar {
+  width: 4px;
+  height: 18px;
+}
+
+.duino-spin__wave--xl .duino-spin__wave-bar {
+  width: 5px;
+  height: 24px;
+}
+
+.duino-spin__wave-bar--1 {
+  animation-delay: -0.4s;
+}
+
+.duino-spin__wave-bar--2 {
+  animation-delay: -0.3s;
+}
+
+.duino-spin__wave-bar--3 {
+  animation-delay: -0.2s;
+}
+
+.duino-spin__wave-bar--4 {
+  animation-delay: -0.1s;
+}
+
+.duino-spin__wave-bar--5 {
+  animation-delay: 0s;
+}
 
 @keyframes duino-spin-wave {
-  0%, 40%, 100% {
+
+  0%,
+  40%,
+  100% {
     transform: scaleY(0.4);
   }
+
   20% {
     transform: scaleY(1);
   }
@@ -387,7 +579,7 @@
     width: 40px;
     height: 40px;
   }
-  
+
   .duino-spin--lg .duino-spin__svg {
     width: 28px;
     height: 28px;
@@ -397,6 +589,7 @@
 /* ===== ACCESSIBILITY ===== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .duino-spin__svg,
   .duino-spin__dot,
   .duino-spin__pulse-ring,
@@ -405,13 +598,13 @@
   .duino-spin__wave-bar {
     animation: none;
   }
-  
+
   .duino-spin__circle {
     animation: none;
     stroke-dasharray: none;
     stroke-dashoffset: 0;
   }
-  
+
   /* Mostrar indicador estático para usuarios con motion reducido */
   .duino-spin__svg .duino-spin__circle {
     stroke-dasharray: 25, 25;
@@ -423,7 +616,7 @@
   .duino-spin {
     color: var(--duino-color-fg);
   }
-  
+
   .duino-spin-overlay {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: none;
@@ -464,11 +657,12 @@
 /* ===== PRINT STYLES ===== */
 
 @media print {
+
   .duino-spin,
   .duino-spin-overlay {
     display: none !important;
   }
-  
+
   .duino-spin-content--blurred {
     filter: none !important;
     opacity: 1 !important;
