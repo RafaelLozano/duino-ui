@@ -4,8 +4,7 @@ export default defineConfig({
   entry: {
     index: "src/index.ts",
     "components/index": "src/components/index.ts",
-    "utils/index": "src/utils/index.ts",
-    "styles": "src/styles.css"
+    "utils/index": "src/utils/index.ts"
   },
   dts: {
     resolve: true,
@@ -19,9 +18,16 @@ export default defineConfig({
   treeshake: true,
   splitting: true,
   minify: false,
+  // Incluir archivos CSS automáticamente
+  injectStyle: true,
   esbuildOptions(options) {
     options.banner = {
       js: '"use client";',
+    };
+    // Configurar CSS para ser incluido en JS
+    options.loader = {
+      ...options.loader,
+      '.css': 'css'
     };
   },
   onSuccess: "echo 'Build completed successfully!'",

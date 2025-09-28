@@ -15,6 +15,8 @@ import {
   ThemeSwitcher
 } from '@ralorotech/duino-ui';
 
+// ¡No necesitas importar CSS! Los estilos se incluyen automáticamente 🎉
+
 // Ejemplo completo de uso de Duino UI
 function CompleteExample() {
   const [modalOpen, setModalOpen] = useState(false);

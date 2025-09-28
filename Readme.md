@@ -37,23 +37,13 @@ yarn add @ralorotech/duino-ui
 pnpm add @ralorotech/duino-ui
 ```
 
-### Importar estilos
+### ✨ Uso Super Simple
 
-**Opción 1: Importación automática (recomendada)**
-```tsx
-import { Button, Input } from "@ralorotech/duino-ui";
-// Los estilos se importan automáticamente
-```
+Los estilos se incluyen **automáticamente** cuando importas cualquier componente. ¡No necesitas importar CSS por separado!
 
-**Opción 2: Importación manual de estilos**
 ```tsx
-import { Button, Input } from "@ralorotech/duino-ui";
-import "@ralorotech/duino-ui/styles.css";
-```
-
-**Opción 3: Solo tokens CSS**
-```tsx
-import "@ralorotech/duino-ui/tokens.css";
+import { Button, Input, Modal } from "@ralorotech/duino-ui";
+// ¡Los estilos ya están incluidos! 🎉
 ```
 
 ### Uso rápido
@@ -190,6 +180,7 @@ npm run test         # Ejecutar tests con Vitest
 
 ## ✨ Características
 
+- ✨ **Estilos Automáticos** - ¡Solo importa el componente y listo! CSS incluido automáticamente
 - 🎨 **100% Personalizable** - Cambia colores, tipografía y espaciado en tiempo real
 - 🚀 **Tree-shaking optimizado** - Importa solo lo que necesitas
 - 📱 **Responsive** - Diseño adaptativo para todos los dispositivos
@@ -222,13 +213,14 @@ Todos los componentes utilizan los tokens de Duino UI y siguen la metodología B
 ## 🆕 Últimas Mejoras
 
 ### v0.0.16 - Mejoras de Usabilidad
+- ✨ **Estilos Automáticos** - ¡Ya no necesitas importar CSS! Los estilos se incluyen automáticamente
 - ✅ **Exports mejorados** - Mejor experiencia de importación con múltiples puntos de entrada
 - ✅ **Tree-shaking optimizado** - Configuración mejorada para mejor eliminación de código muerto
-- ✅ **CSS modular** - Importación flexible de estilos (automática o manual)
 - ✅ **TypeScript mejorado** - Mejor resolución de tipos y configuración de build
 - ✅ **Documentación actualizada** - Ejemplos más completos y guías mejoradas
 - ✅ **Scripts de desarrollo** - Comandos adicionales para linting, type-checking y testing
 - ✅ **Compatibilidad ampliada** - Soporte para ESM, CJS y UMD
+- 🚀 **Experiencia de desarrollo mejorada** - Configuración simplificada sin importaciones de CSS
 
 ## ⚖️ Licencia
 MIT

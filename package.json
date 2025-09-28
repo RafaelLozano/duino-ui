@@ -39,9 +39,6 @@
       "import": "./dist/utils/index.js",
       "require": "./dist/utils/index.cjs"
     },
-    "./styles": "./dist/styles.css",
-    "./styles.css": "./dist/styles.css",
-    "./tokens.css": "./dist/styles/tokens.css",
     "./package.json": "./package.json"
   },
   "sideEffects": [
