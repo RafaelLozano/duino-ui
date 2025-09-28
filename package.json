@@ -1,6 +1,6 @@
 {
   "name": "@ralorotech/duino-ui",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Sistema de diseño minimalista en React + TypeScript con estilos CSS (BEM), inspirado en la identidad visual de Arduino",
   "publishConfig": {
     "access": "public"
