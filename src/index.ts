@@ -1,4 +1,5 @@
 // ===== ESTILOS GLOBALES =====
+// Importación automática de estilos - no es necesario importar CSS manualmente
 import "./styles/tokens.css";
 import "./styles/index.css";
 

@@ -30,40 +30,78 @@ function App() {
 ## 🚀 Instalación
 
 ```bash
-npm i duino-ui
+npm install @ralorotech/duino-ui
 # o
-yarn add duino-ui
+yarn add @ralorotech/duino-ui
 # o
-pnpm add duino-ui
+pnpm add @ralorotech/duino-ui
 ```
 
-Importa el CSS (tokens + estilos base):
+### Importar estilos
 
-```ts
-import "duino-ui/styles.css";
+**Opción 1: Importación automática (recomendada)**
+```tsx
+import { Button, Input } from "@ralorotech/duino-ui";
+// Los estilos se importan automáticamente
+```
+
+**Opción 2: Importación manual de estilos**
+```tsx
+import { Button, Input } from "@ralorotech/duino-ui";
+import "@ralorotech/duino-ui/styles.css";
+```
+
+**Opción 3: Solo tokens CSS**
+```tsx
+import "@ralorotech/duino-ui/tokens.css";
 ```
 
 ### Uso rápido
 
 ```tsx
-import { Button, Card, Input } from "duino-ui";
-import "duino-ui/styles.css";
+import { Button, Input, Modal, Select } from "@ralorotech/duino-ui";
 
 export default function App() {
   return (
-    <Card>
+    <div>
       <h2>Duino UI Components</h2>
       <Button>Primary</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="danger" loading>Deleting…</Button>
       <Input placeholder="Ingresa texto..." />
-    </Card>
+      <Select 
+        options={[
+          { label: "Opción 1", value: "1" },
+          { label: "Opción 2", value: "2" }
+        ]}
+        placeholder="Selecciona una opción"
+      />
+    </div>
   );
 }
 ```
 
 ---
+
+## 📖 Ejemplos de Uso
+
+### Ejemplo Básico
+```tsx
+import { Button, Input, Modal } from "@ralorotech/duino-ui";
+
+function App() {
+  return (
+    <div>
+      <Button>Hola Mundo</Button>
+      <Input placeholder="Escribe algo..." />
+    </div>
+  );
+}
+```
+
+### Ejemplo Completo
+Ver el archivo [`examples/CompleteExample.tsx`](./examples/CompleteExample.tsx) para un ejemplo completo que muestra todos los componentes disponibles.
 
 ## 🧑‍💻 Desarrollo local
 
@@ -85,6 +123,18 @@ npm run dev
 
 ```bash
 npm run storybook
+```
+
+4) **Ejecutar tests**:
+
+```bash
+npm run test
+```
+
+5) **Verificar tipos**:
+
+```bash
+npm run type-check
 ```
 
 ### 🎨 Tokens de diseño
@@ -138,15 +188,47 @@ npm run build:storybook  # Compilar Storybook
 npm run test         # Ejecutar tests con Vitest
 ```
 
+## ✨ Características
+
+- 🎨 **100% Personalizable** - Cambia colores, tipografía y espaciado en tiempo real
+- 🚀 **Tree-shaking optimizado** - Importa solo lo que necesitas
+- 📱 **Responsive** - Diseño adaptativo para todos los dispositivos
+- ♿ **Accesible** - Componentes con soporte completo de accesibilidad
+- 🎯 **TypeScript** - Tipado completo para mejor experiencia de desarrollo
+- 🎨 **BEM CSS** - Metodología de nomenclatura consistente y mantenible
+- 🔧 **Temas** - Sistema de temas predefinidos y personalizables
+- 📦 **Múltiples formatos** - ESM, CJS y UMD para máxima compatibilidad
+- ⚡ **Rápido** - Optimizado para rendimiento y carga rápida
+- 🛠️ **Desarrollador-friendly** - Hot reload, source maps y debugging
+
 ## 🎯 Componentes incluidos
 
 - **Button**: Botones con variantes primary, secondary, ghost y danger
-- **Card**: Contenedores con backdrop blur y estilos modernos  
 - **Input**: Campos de entrada con estados de focus y error
+- **Modal**: Ventanas modales con overlay y animaciones
+- **Select**: Selectores desplegables con búsqueda
+- **Table**: Tablas con ordenamiento y paginación
+- **Upload**: Componente de carga de archivos con drag & drop
+- **Collapse**: Acordeones colapsables
+- **Popover**: Tooltips y popovers posicionables
+- **Spin**: Indicadores de carga
+- **Message**: Sistema de notificaciones
+- **Image**: Componente de imagen optimizado
 
 Todos los componentes utilizan los tokens de Duino UI y siguen la metodología BEM para CSS.
 
 ---
+
+## 🆕 Últimas Mejoras
+
+### v0.0.16 - Mejoras de Usabilidad
+- ✅ **Exports mejorados** - Mejor experiencia de importación con múltiples puntos de entrada
+- ✅ **Tree-shaking optimizado** - Configuración mejorada para mejor eliminación de código muerto
+- ✅ **CSS modular** - Importación flexible de estilos (automática o manual)
+- ✅ **TypeScript mejorado** - Mejor resolución de tipos y configuración de build
+- ✅ **Documentación actualizada** - Ejemplos más completos y guías mejoradas
+- ✅ **Scripts de desarrollo** - Comandos adicionales para linting, type-checking y testing
+- ✅ **Compatibilidad ampliada** - Soporte para ESM, CJS y UMD
 
 ## ⚖️ Licencia
 MIT
