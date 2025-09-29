@@ -61,7 +61,7 @@
 
 .duino-input--borderless.duino-input--focused {
     border-bottom-color: var(--duino-brand-500);
-    border-bottom-width: 2px;
+    border-bottom-width: 1px;
 }
 
 /* ===== SIZES ===== */
@@ -121,7 +121,7 @@
 /* Focus */
 .duino-input--focused {
     border-color: var(--duino-brand-400);
-    box-shadow: 0 0 0 3px var(--duino-ring);
+    box-shadow: 0 0 0 1px var(--duino-ring);
 }
 
 /* Error */
@@ -141,7 +141,7 @@
 
 .duino-input--success.duino-input--focused {
     border-color: var(--duino-brand-500);
-    box-shadow: 0 0 0 3px var(--duino-ring);
+    box-shadow: 0 0 0 1px var(--duino-ring);
 }
 
 /* Disabled */
@@ -444,11 +444,11 @@
 /* High contrast mode */
 @media (prefers-contrast: high) {
     .duino-input {
-        border-width: 2px;
+        border-width: 1px;
     }
 
     .duino-input--focused {
-        box-shadow: 0 0 0 3px var(--duino-ring);
+        box-shadow: 0 0 0 1px var(--duino-ring);
     }
 }
 
