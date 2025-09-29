@@ -1,5 +1,6 @@
 // ===== EXPORTS DE COMPONENTES =====
 export { Button } from "./Button/Button";
+export { Card } from "./Card/Card";
 export { Collapse, CollapsePanel } from "./Collapse/Collapse";
 export { Image } from "./Image/Image";
 export { Input, TextArea, InputGroup, Search } from "./Input/Input";
@@ -19,6 +20,11 @@ export type {
   ButtonSize, 
   ButtonShape 
 } from "./Button/Button";
+
+export type { 
+  CardProps, 
+  CardSize 
+} from "./Card/Card";
 
 export type { 
   CollapseProps, 
