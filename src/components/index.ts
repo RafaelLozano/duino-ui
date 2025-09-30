@@ -9,6 +9,7 @@ export { MessageProvider, useMessage } from "./Message/MessageProvider";
 export { Popover } from "./Popover/Popover";
 export { Select } from "./Select/Select";
 export { Sender } from "./Sender/Sender";
+export { Skeleton, SkeletonAvatar, SkeletonButton, SkeletonInput, SkeletonImage } from "./Skeleton/Skeleton";
 export { Spin } from "./Spin/Spin";
 export { Table } from "./Table/Table";
 export { Upload } from "./Upload/Upload";
@@ -76,6 +77,12 @@ export type {
 export type { 
   SenderProps 
 } from "./Sender/Sender";
+
+export type { 
+  SkeletonProps, 
+  SkeletonVariant, 
+  SkeletonAnimation 
+} from "./Skeleton/Skeleton";
 
 export type { 
   SpinProps, 

@@ -1,0 +1,317 @@
+/* Import tokens */
+@import "../../styles/tokens.css";
+
+/* ===== DUINO SKELETON - BEM METHODOLOGY ===== */
+
+/* Block: duino-skeleton */
+.duino-skeleton {
+    display: inline-block;
+    background: #f0f0f0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Container para múltiples líneas */
+.duino-skeleton__container {
+    display: block;
+    width: 100%;
+}
+
+.duino-skeleton__line {
+    display: block;
+    margin-bottom: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.duino-skeleton__line:last-child {
+    margin-bottom: 0;
+}
+
+/* Aplicar animaciones a las líneas también */
+.duino-skeleton__line.duino-skeleton--pulse {
+    animation: duino-skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.duino-skeleton__line.duino-skeleton--wave {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: duino-skeleton-wave 1.6s linear infinite;
+}
+
+/* ===== VARIANTS (Modifiers) ===== */
+
+/* Text variant */
+.duino-skeleton--text {
+    width: 100%;
+    height: 1em;
+    border-radius: 4px;
+}
+
+/* Circular variant */
+.duino-skeleton--circular {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+/* Rectangular variant */
+.duino-skeleton--rectangular {
+    border-radius: 0;
+}
+
+/* Rounded variant */
+.duino-skeleton--rounded {
+    border-radius: var(--duino-radius);
+}
+
+/* ===== ANIMATION TYPES ===== */
+
+/* Pulse animation */
+.duino-skeleton--pulse {
+    animation: duino-skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* Wave animation */
+.duino-skeleton--wave {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: duino-skeleton-wave 1.6s linear infinite;
+}
+
+/* No animation */
+.duino-skeleton--none {
+    animation: none;
+    background: #f0f0f0;
+}
+
+/* ===== COMPONENT-SPECIFIC SKELETONS ===== */
+
+/* Avatar skeleton */
+.duino-skeleton--avatar {
+    flex-shrink: 0;
+}
+
+.duino-skeleton--avatar.duino-skeleton--circle {
+    border-radius: 50%;
+}
+
+.duino-skeleton--avatar.duino-skeleton--square {
+    border-radius: 4px;
+}
+
+/* Button skeleton */
+.duino-skeleton--button {
+    border-radius: var(--duino-radius);
+    min-height: 36px;
+    width: auto;
+    min-width: 80px;
+    display: inline-block;
+}
+
+.duino-skeleton--button.duino-skeleton--sm {
+    min-height: 28px;
+    min-width: 60px;
+}
+
+.duino-skeleton--button.duino-skeleton--lg {
+    min-height: 44px;
+    min-width: 100px;
+}
+
+.duino-skeleton--button.duino-skeleton--round {
+    border-radius: 50px;
+}
+
+.duino-skeleton--button.duino-skeleton--circle {
+    border-radius: 50%;
+    min-width: 36px;
+    width: 36px;
+    aspect-ratio: 1;
+}
+
+.duino-skeleton--button.duino-skeleton--circle.duino-skeleton--sm {
+    min-height: 28px;
+    min-width: 28px;
+    width: 28px;
+}
+
+.duino-skeleton--button.duino-skeleton--circle.duino-skeleton--lg {
+    min-height: 44px;
+    min-width: 44px;
+    width: 44px;
+}
+
+.duino-skeleton--button.duino-skeleton--block {
+    width: 100%;
+    display: block;
+}
+
+/* Input skeleton */
+.duino-skeleton--input {
+    border-radius: var(--duino-radius);
+    min-height: 36px;
+    width: 100%;
+    display: block;
+}
+
+.duino-skeleton--input.duino-skeleton--sm {
+    min-height: 28px;
+}
+
+.duino-skeleton--input.duino-skeleton--lg {
+    min-height: 44px;
+}
+
+/* Image skeleton */
+.duino-skeleton--image {
+    border-radius: var(--duino-radius);
+    display: block;
+    width: 100%;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes duino-skeleton-pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes duino-skeleton-wave {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* ===== THEME VARIATIONS ===== */
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+    .duino-skeleton {
+        background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+        background-size: 200% 100%;
+    }
+
+    .duino-skeleton--none {
+        background: #2a2a2a;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .duino-skeleton {
+        background: linear-gradient(90deg, #d0d0d0 25%, #a0a0a0 50%, #d0d0d0 75%);
+        background-size: 200% 100%;
+        border: 1px solid #888888;
+    }
+
+    .duino-skeleton--none {
+        background: #d0d0d0;
+        border: 1px solid #888888;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .duino-skeleton--pulse,
+    .duino-skeleton--wave {
+        animation: none;
+        background: #f0f0f0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+
+        .duino-skeleton--pulse,
+        .duino-skeleton--wave {
+            background: #2a2a2a;
+        }
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 640px) {
+    .duino-skeleton--button.duino-skeleton--lg {
+        min-height: 40px;
+        min-width: 90px;
+    }
+
+    .duino-skeleton--input.duino-skeleton--lg {
+        min-height: 40px;
+    }
+
+    .duino-skeleton--button.duino-skeleton--circle.duino-skeleton--lg {
+        min-height: 40px;
+        min-width: 40px;
+        width: 40px;
+    }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Para grupos de skeletons */
+.duino-skeleton-group {
+    display: flex;
+    gap: var(--duino-gap);
+}
+
+.duino-skeleton-group--vertical {
+    flex-direction: column;
+}
+
+.duino-skeleton-group--horizontal {
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Para skeletons de lista */
+.duino-skeleton-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.duino-skeleton-list__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Para skeleton de tarjeta */
+.duino-skeleton-card {
+    border: 1px solid var(--duino-border);
+    border-radius: var(--duino-radius);
+    padding: 16px;
+    background: var(--duino-color-bg);
+}
+
+.duino-skeleton-card__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.duino-skeleton-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
